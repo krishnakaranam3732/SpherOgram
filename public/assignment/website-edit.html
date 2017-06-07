@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Edit Website</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top user-website-navbar">
+    <div class="row container-fluid">
+		<div class="col-sm-4 hidden-xs">
+			<p class="navbar-text pull-left">
+                <a href="website-list.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </p>
+			<p class="navbar-text pull-right">
+                <a href="#">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </p>
+			<div class="navbar-header">
+                <a class="navbar-brand" href="#">Websites</a>
+            </div>
+		</div>
+		<div class="col-sm-8">
+            <div class="navbar-header complete-width">
+				<p class="navbar-text pull-left visible-xs hidden-sm hidden-md hidden-lg">
+                    <a href="website-list.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-chevron-left pull-right"></span>
+                    </a>
+                </p>
+				<p class="navbar-text pull-right">
+                    <a href="website-list.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-ok"> </span>
+                    </a>
+                </p>
+				<a class="navbar-brand" href="#">Edit Website</a>
+			</div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="row container-fluid">
+    <div class="col-sm-4 hidden-xs profile-block separation">
+		<ul class="list-group ">
+			<li class="list-group-item borderless list-color">
+                <a href="website-edit.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-cog pull-right"> </span>
+                </a>
+				<a href="page-list.html" class="navbar-link">Blogging App</a>
+			</li>
+			<li class="list-group-item borderless list-color">
+                <a href="website-edit.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-cog pull-right"> </span>
+                </a>
+				<a href="page-list.html" class="navbar-link">Address Book App</a>
+			</li>
+			<li class="list-group-item borderless list-color">
+                <a href="website-edit.html" class="navbar-link pull-right">
+                    <span class="glyphicon glyphicon-cog pull-right"> </span>
+                </a>
+				<a href="page-list.html" class="navbar-link">Script Testing App</a>
+			</li>
+
+			<li class="list-group-item borderless list-color">
+                <a href="website-edit.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-cog pull-right"> </span>
+                </a>
+				<a href="page-list.html" class="navbar-link">Blogger</a>
+			</li>
+		</ul>
+    </div>
+	<div class="col-sm-8 profile-block">
+		<div class="container-fluid">
+            <form>
+                <div class="form-group">
+                    <label for="name">Website Name</label><br>
+                    <input type="text" class="form-control" id="name" placeholder="Blogger">
+                </div>
+                <div class="form-group">
+                    <label for="description">Website Description</label>
+                    <textarea rows="5" class="form-control" id="description" placeholder="Blogger is a blog-publishing service that allows multi-user blogs with time-stamped entries. It was developed by Pyra Labs, which was bought by Google in 2003. Generally, the blogs are hosted by Google at a subdomain of blogspot.com. Blogs can also be hosted in the registered custom domain of the blogger (like www.example.com).[4] A user can have up to 100 blogs per account."></textarea>
+                </div>
+				<a class="btn btn-danger  btn-block" href="website-list.html">Delete</a>
+			</form>
+        </div>
+	</div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+			<p class="navbar-text pull-right">
+                <a href="profile.html" class="navbar-link">
+                    <span class="glyphicon glyphicon-user pull-right"> </span>
+                </a>
+            </p>
+		</div>
+    </div>
+</nav>
+
+</body>
+</html>
