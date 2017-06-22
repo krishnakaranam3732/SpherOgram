@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <div class="col-sm-12 profile-block">
+        <div class="form-group">
+            <label for="widget-name">Name</label>
+            <input ng-model="model.widget.name"
+                   type="text"
+                   placeholder="Widget Name"
+                   class="form-control"
+                   id="widget-name"/>
+        </div>
+        <div class="form-group">
+            <label for="widget-text">HTML Text</label>
+            <textarea ng-model="model.widget.text"
+                      rows="6"
+                      value="US Senate Reaches Compromise on Emergency Zika Funding"
+                      class="form-control"
+                      placeholder="Text"
+                      id="widget-text"></textarea>
+        </div>
+        <a ng-click="model.deleteWidget()" class="btn btn-danger btn-block">
+            Delete
+        </a>
+    </div>
+</div>

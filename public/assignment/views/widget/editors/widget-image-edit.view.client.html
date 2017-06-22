@@ -1,0 +1,53 @@
+<div class="container-fluid">
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <div class="col-sm-12 profile-block">
+        <div class="form-group">
+            <label for="widget-name">Name</label>
+            <input ng-model="model.widget.name"
+                   type="text"
+                   placeholder="Widget Name"
+                   class="form-control"
+                   id="widget-name"/>
+        </div>
+        <div class="form-group">
+            <label for="widget-text">Text</label>
+            <input ng-model="model.widget.text"
+                   type="text"
+                   class="form-control"
+                   placeholder="Widget Text"
+                   id="widget-text"/>
+        </div>
+        <div class="form-group">
+            <label for="widget-url">URL</label>
+            <input ng-model="model.widget.url"
+                   type="text"
+                   value="https://i.kinja-img.com/gawker-media/image.jpeg"
+                   class="form-control"
+                   id="widget-url"/>
+        </div>
+        <div class="form-group">
+            <label for="widget-width">Width</label>
+            <input ng-model="model.widget.width"
+                   type="text"
+                   value="100%"
+                   class="form-control"
+                   id="widget-width"/>
+        </div>
+        <div class="form-group">
+            <label for="widget-upload">Upload</label>
+            <input type="file"
+                   class="form-control"
+                   id="widget-upload"/>
+        </div>
+        <a href class="btn btn-primary btn-block">
+            Upload Image
+        </a>
+        <a ng-click="model.deleteWidget()" class="btn btn-danger btn-block">
+            Delete
+        </a>
+    </div>
+</div>
