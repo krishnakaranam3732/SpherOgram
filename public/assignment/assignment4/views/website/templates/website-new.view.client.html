@@ -1,0 +1,75 @@
+<nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+    <div class="row">
+        <div class="col-xs-4 hidden-xs">
+            <a class="navbar-brand" href="#!/user/{{websiteNewCtrl.userId}}/website"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>Websites</strong>
+            </span>
+            <a class="navbar-brand pull-right" href ng-click="websiteNewCtrl.reloadPage()"><span
+                    class="glyphicon glyphicon-plus"></span></a>
+
+
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <a class="navbar-brand visible-xs" href="#!/user/{{websiteNewCtrl.userId}}/website"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>New Website</strong>
+            </span>
+            <button type="submit" class="navbar-brand pull-right krish-button-form" form="form"><span
+                    class="glyphicon glyphicon-ok"></span></button>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid full-height">
+    <div class="row full-height">
+        <div class="col-xs-4 hidden-xs right-border full-height">
+            <div class="list-group krish-center-container">
+                <div ng-repeat="website in websiteNewCtrl.websites"
+                     class="list-group-item krish-list-group-noborder list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10 krish-no-wrap-text">
+                            <span class="krish-white-text">
+                                <h4><strong>{{website.name}}</strong></h4>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#!/user/{{websiteNewCtrl.userId}}/website/{{website._id}}" class="krish-white-link">
+                                <h4>
+                                    <strong><span
+                                            class="glyphicon glyphicon-cog pull-right"></span></strong>
+                                </h4></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 full-height">
+            <form class="krish-center-container" id="form" ng-submit="websiteNewCtrl.createWebsite()">
+                <div id="top">
+                    <div ng-show="websiteNewCtrl.error" class="alert alert-danger krish-alert-style">
+                        <strong>{{websiteNewCtrl.error}}</strong>
+                    </div>
+                </div>
+                <div class="form-group krish-form-group">
+                    <label for="name" class="lead">Name</label>
+                    <input type="text" ng-model="websiteNewCtrl.newWebsite.name" id="name" class="form-control"
+                           placeholder="Name" data-toggle="tooltip"
+                           title="Enter Website Name" required autofocus>
+                </div>
+                <div class="form-group krish-form-group">
+                    <label for="description" class="lead">Description</label>
+                    <textarea id="description" ng-model="websiteNewCtrl.newWebsite.description" rows="5"
+                              class="form-control"
+                              placeholder="Description"
+                              data-toggle="tooltip"
+                              title="Enter Website Description"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/footer.view.client.html'"></div>

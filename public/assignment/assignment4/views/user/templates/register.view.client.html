@@ -1,0 +1,45 @@
+<div class="container krish-center-container">
+    <form class="form-signin" ng-submit="registerCtrl.register()">
+        <h2 class="form-signin-heading" id="top">Register</h2>
+        <div ng-show="registerCtrl.error" class="alert alert-danger krish-alert-style">
+            <strong>{{registerCtrl.error}}</strong></div>
+        <div class="form-group">
+            <label for="username" class="lead">User Name</label>
+            <input type="text" ng-model="registerCtrl.user.username" id="username" class="form-control"
+                   placeholder="User Name" data-toggle="tooltip"
+                   title="Enter your username" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="lead">Password</label>
+            <input type="password" ng-model="registerCtrl.user.password" id="inputPassword" class="form-control"
+                   placeholder="Password" data-toggle="tooltip"
+                   title="Enter your password" required>
+        </div>
+        <div class="form-group">
+            <label for="verifyInputPassword" class="lead">Verify Password</label>
+            <input type="password" ng-model="registerCtrl.verifyPassword" id="verifyInputPassword" class="form-control"
+                   placeholder="Verify Password"
+                   data-toggle="tooltip" title="Verify your password" required>
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="lead">First Name</label>
+            <input type="text" ng-model="registerCtrl.user.firstName" id="firstname" class="form-control"
+                   placeholder="First Name" data-toggle="tooltip"
+                   title="Enter your First Name" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="lead">Last Name</label>
+            <input type="text" ng-model="registerCtrl.user.lastName" id="lastname" class="form-control"
+                   placeholder="Last Name" data-toggle="tooltip"
+                   title="Enter your Last Name" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="email" class="lead">Email</label>
+            <input type="email" ng-model="registerCtrl.user.email" id="email" class="form-control"
+                   placeholder="abc@xyz.com" data-toggle="tooltip"
+                   title="Enter your email address" required autofocus>
+        </div>
+        <button type="submit" class="btn btn-lg btn-block">Register</button>
+        <a href="#!/" class="btn btn-lg btn-block krish-cancel" type="submit">Cancel</a>
+    </form>
+</div>

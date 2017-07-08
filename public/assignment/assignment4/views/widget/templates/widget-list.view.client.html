@@ -1,0 +1,67 @@
+<div class="container-fluid krish-center-container">
+
+    <nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#!/user/{{widgetCtrl.userId}}/website/{{widgetCtrl.websiteId}}/page"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>Widgets</strong>
+            </span>
+            <a class="navbar-brand pull-right"
+               href="#!/user/{{widgetCtrl.userId}}/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget/new"><span
+                    class="glyphicon glyphicon-plus"></span></a>
+
+
+        </div>
+    </nav>
+    <div id="top" class="krish-home-page-center">
+        <div ng-show="widgetEditCtrl.error" class="alert alert-danger krish-alert-style">
+            <strong>{{widgetEditCtrl.error}}</strong>
+        </div>
+        <div ng-show="error" class="alert alert-danger krish-alert-style">
+            <strong>{{error}}</strong>
+        </div>
+    </div>
+
+    <ul wbdv-sortable page-id="{{widgetCtrl.pageId}}" class="row krish-widget krish-widget-list">
+        <li ng-repeat="widget in widgetCtrl.widgets" class="col-xs-12">
+            <div class="krish-widget-toolbar krish-widget-toolbar-ontop ">
+                <a class="krish-white-link handle"
+                   href="#!/user/{{widgetCtrl.userId}}/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget"><span
+                        class="glyphicon glyphicon-menu-hamburger pull-right"></span></a>
+                <a class="krish-white-link"
+                   href="#!/user/{{widgetCtrl.userId}}/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget/{{widget._id}}"><span
+                        class="glyphicon glyphicon-cog pull-right"></span></a>
+            </div>
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-heading.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-image.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="HTML">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-html.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-youtube.view.client.html'"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+
+    <nav class="navbar transparent navbar-inverse navbar-fixed-bottom affix">
+        <div class="container-fluid">
+            <a class="navbar-brand  krish-navbar-reducedSize"
+               href="#!/user/{{widgetCtrl.userId}}/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget"><span
+                    class="glyphicon glyphicon-play"></span></a>
+            <a class="navbar-brand  krish-navbar-reducedSize"
+               href="#!/user/{{widgetCtrl.userId}}/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget"><span
+                    class="glyphicon glyphicon-eye-open"></span></a>
+            <a class="navbar-brand  krish-navbar-reducedSize pull-right"
+               href="#!/user/{{widgetCtrl.userId}}"><span class="glyphicon glyphicon-user"></span></a>
+        </div>
+    </nav>
+
+</div>

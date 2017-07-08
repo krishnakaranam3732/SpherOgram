@@ -1,0 +1,84 @@
+<nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+    <div class="row">
+        <div class="col-xs-4 hidden-xs">
+            <a class="navbar-brand" href="#!/user/{{pageEditCtrl.userId}}/website/{{pageEditCtrl.websiteId}}/page"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>Pages</strong>
+            </span>
+            <a class="navbar-brand pull-right"
+               href="#!/user/{{pageEditCtrl.userId}}/website/{{pageEditCtrl.websiteId}}/page/new"><span
+                    class="glyphicon glyphicon-plus"></span></a>
+
+
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <a class="navbar-brand visible-xs"
+               href="#!/user/{{pageEditCtrl.userId}}/website/{{pageEditCtrl.websiteId}}/page"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>Edit Page</strong>
+            </span>
+            <button type="submit" class="navbar-brand pull-right krish-button-form" form="form"><span
+                    class="glyphicon glyphicon-ok"></span></button>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid full-height">
+    <div class="row full-height">
+        <div class="col-xs-4 hidden-xs right-border full-height">
+            <div class="list-group krish-center-container">
+                <div ng-repeat="page in pageEditCtrl.pages"
+                     class="list-group-item krish-list-group-noborder list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10 krish-no-wrap-text">
+                            <span class="krish-white-text">
+                                <h4><strong>{{page.name}}</strong></h4>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href ng-if="pageEditCtrl.pageId === page._id" ng-click="pageEditCtrl.pageReload()"
+                               class="krish-white-link"><h4><strong><span
+                                    class="glyphicon glyphicon-cog pull-right"></span></strong>
+                            </h4></a>
+                            <a href="#!/user/{{pageEditCtrl.userId}}/website/{{pageEditCtrl.websiteId}}/page/{{page._id}}"
+                               ng-if="pageEditCtrl.pageId !== page._id" class="krish-white-link"><h4><strong><span
+                                    class="glyphicon glyphicon-cog pull-right"></span></strong>
+                            </h4></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 full-height">
+            <form class="krish-center-container" id="form" ng-submit="pageEditCtrl.updatePage()">
+                <div id="top">
+                    <div ng-show="pageEditCtrl.error" class="alert alert-danger krish-alert-style">
+                        <strong>{{pageEditCtrl.error}}</strong>
+                    </div>
+                </div>
+                <div class="form-group krish-form-group">
+                    <label for="name" class="lead">Name</label>
+                    <input type="text" ng-model="pageEditCtrl.currentPage.name" id="name" class="form-control"
+                           placeholder="Name"
+                           data-toggle="tooltip"
+                           title="Enter Page Name" required autofocus>
+                </div>
+                <div class="form-group krish-form-group">
+                    <label for="title" class="lead">Title</label>
+                    <input type="text" ng-model="pageEditCtrl.currentPage.title" id="title" class="form-control"
+                           placeholder="Title"
+                           data-toggle="tooltip"
+                           title="Enter Page Title">
+                </div>
+                <div class="form-group krish-form-group">
+                    <a href ng-click="pageEditCtrl.deletePage()" class="btn btn-lg btn-block krish-cancel"
+                       type="submit">Delete</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/footer.view.client.html'"></div>

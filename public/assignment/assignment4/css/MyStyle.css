@@ -1,0 +1,474 @@
+/*
+* Globals
+*/
+
+/* Links */
+a,
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+    color: #333;
+    text-shadow: none; /* Prevent inheritance from `body` */
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+    height: 100%;
+    background: #333 url(../../../pictures/websitebuilder2.jpg) no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+
+}
+
+body {
+    color: #fff;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+    -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+}
+
+.site-wrapper-inner {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.cover-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+    padding: 30px;
+}
+
+/*
+ * Header
+ */
+.masthead-brand {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+    display: inline-block;
+}
+
+.masthead-nav > li + li {
+    margin-left: 20px;
+}
+
+.masthead-nav > li > a {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff; /* IE8 proofing */
+    color: rgba(255, 255, 255, .75);
+    border-bottom: 2px solid transparent;
+}
+
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+    background-color: transparent;
+    border-bottom-color: #a9a9a9;
+    border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+    .masthead-brand {
+        float: left;
+    }
+
+    .masthead-nav {
+        float: right;
+    }
+}
+
+/*
+ * Cover
+ */
+
+.cover {
+    padding: 0 20px;
+}
+
+.cover .btn-lg {
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+    color: #999; /* IE8 proofing */
+    color: rgba(255, 255, 255, .5);
+}
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+    /* Pull out the header and footer */
+    .masthead {
+        position: fixed;
+        top: 0;
+    }
+
+    .mastfoot {
+        bottom: 0;
+    }
+
+    /* Start the vertical centering */
+    .site-wrapper-inner {
+        vertical-align: middle;
+    }
+
+    /* Handle the widths */
+    .masthead,
+    .mastfoot,
+    .cover-container {
+        width: 100%; /* Must be percentage or pixels for horizontal alignment */
+    }
+}
+
+@media (min-width: 992px) {
+    .masthead,
+    .mastfoot,
+    .cover-container {
+        width: 700px;
+    }
+}
+
+.lead {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.right-border {
+    border-right: 1px solid white;
+}
+
+/** To make border split pages **/
+
+.full-height {
+    height: 100%;
+}
+
+.krish-form-group {
+    padding: 15px;
+    margin-bottom: 0px;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+    color: #333;
+    text-shadow: none; /* Prevent inheritance from `body` */
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+.btn-lg {
+    padding: 10px 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-block {
+    background-color: #fff;
+    color: #333;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin label,
+.form-signin-heading {
+    color: white;
+}
+
+.krish-cancel {
+    background-color: #8e1f0f;
+    color: #fff;
+}
+
+.krish-center-container {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.krish-no-wrap-text * {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar.transparent.navbar-inverse {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.navbar {
+    max-height: 50px;
+}
+
+.list-group, .list-group-item, a.list-group-item {
+    background: rgba(0, 0, 0, 0);
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.krish-white-link {
+    color: #fff;
+}
+
+.krish-white-text {
+    color: #fff;
+}
+
+.krish-white-link:hover,
+.krish-white-link:focus {
+    color: #ccced1;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .list-group, .list-group-item, a.list-group-item {
+        border: none;
+        margin-bottom: 0px;
+    }
+}
+
+.krish-list-group-noborder {
+    border: none;
+    margin-bottom: 0px;
+}
+
+.krish-widget-toolbar {
+    color: #ffff;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    right: 10px;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.krish-widget {
+    color: white;
+    margin: 5px;
+
+}
+
+.krish-widget .col-xs-12 {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.krish-widget h1, h3 {
+    margin: 0px;
+}
+
+.krish-responsive-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+.krish-responsive-video iframe,
+.krish-responsive-video object,
+.krish-responsive-video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.krish-widget-toolbar-ontop {
+    z-index: 1;
+}
+
+.krish-grey-link {
+    color: #68c6e8;
+}
+
+.krish-grey-link:hover,
+.krish-grey-link:focus {
+    color: #889fa8;
+    text-decoration: none;
+}
+
+.krish-navbar-reducedSize {
+    font-size: 14px;
+}
+
+.krish-home-page-center {
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+}
+
+.krish-ng-View {
+    overflow: hidden;
+    height: 100%;
+}
+
+.krish-alert-style {
+    background-color: rgba(170, 0, 0, 0.9);
+    border-color: rgba(200, 0, 0, 0.9);
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.krish-info-style {
+    background-color: rgba(50, 50, 255, 0.9);
+    border-color: rgba(0, 0, 255, 0.9);
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.krish-button-form {
+    border: none;
+    background: none;
+}
+
+.krish-upload-button {
+    margin-top: 15px;
+}
+
+.krish-widget-list {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.krish-input-button {
+    border: 0px;
+    border-left: 1px solid #000;
+    margin: 0px;
+    line-height: inherit;
+    text-transform: none;
+    min-height: 34px;
+}
+
+.krish-input-button:hover, .krish-input-button:focus {
+    background-color: gainsboro !important;
+}
+
+.krish-dialog-button
+{
+    border: 1px solid #000;
+}
+
+.krish-dialog-input{
+    width: 100%;
+    height: 34px;
+}
+
+.krish-flickr {
+    margin: 2px;
+}
+
+.krish-flickr .col-xs-4 {
+    border: 0.5px solid #ddd;
+    padding: 5px;
+}
+
+.krish-flickr img {
+    width: 100%;
+}

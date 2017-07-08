@@ -1,15 +1,22 @@
+//using express with node js
 var express = require('express');
+
+//initialize app as an express application
 var app = express();
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//process.env.port - if we are deploying in heroku we are assigned a port number
+var port = process.env.PORT || 3000;
+console.log(process.env.PORT);
 
-// configure a public directory to host static content
 app.use(express.static(__dirname + '/public'));
 
-require ("./test/app.js")(app);
+//body-parser
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-var port = process.env.PORT || 3000;
+require('./assignment/assignment4/app.js')(app);
 
 app.listen(port);
+
+console.log("Port: " + port);
