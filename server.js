@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 
 //process.env.port - if we are deploying in heroku we are assigned a port number
-var port = process.env.PORT || 3000;
+var port = process.env.PORT;
 console.log(process.env.PORT);
 
 app.use(express.static(__dirname + '/public'));
