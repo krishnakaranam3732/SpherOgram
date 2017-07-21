@@ -11,7 +11,7 @@ module.exports = function () {
     var connectionString = "mongodb://localhost/webdev_summer_2017";
 
     if (process.env.MLAB_USERNAME_WEBDEV && process.env.MLAB_PASSWORD_WEBDEV) {
-        connectionString = process.env.MLAB_USERNAME_WEBDEV + ":" +
+        connectionString = "mongodb://"+process.env.MLAB_USERNAME_WEBDEV + ":" +
             process.env.MLAB_PASSWORD_WEBDEV + "@" +
             process.env.MLAB_HOST_WEBDEV + ':' +
             process.env.MLAB_PORT_WEBDEV + '/' +
