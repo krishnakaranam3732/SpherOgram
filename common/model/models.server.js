@@ -22,6 +22,6 @@ module.exports = function () {
         useMongoClient: true
     });
 
-    console.log("Successfully connected with mongo db ");
+    console.log("Successfully connected with mongo db "+ connectionString);
 
 };

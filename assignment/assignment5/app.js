@@ -24,4 +24,6 @@ module.exports = function (app) {
     mongoose.connect(connectionString, {
         useMongoClient: true
     });
+
+    console.log("Successfully connected with mongo db "+ connectionString);
 };
