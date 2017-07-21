@@ -4,16 +4,19 @@
   "description": "Web Dev at Northeastern University",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.15.1",
-    "express": "^4.13.4",
-    "mongoose": "^4.4.15",
-	"multer": "^1.0.1"
+    "body-parser": "^1.17.2",
+    "cookies": "^0.7.0",
+    "express": "^4.15.2",
+    "mongoose": "^4.11.1",
+    "multer": "^1.3.0",
+    "passport": "^0.3.2",
+    "q": "^1.5.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Jose G. Annunziato",
+  "author": "Krishna Karanam",
   "license": "ISC"
 }
