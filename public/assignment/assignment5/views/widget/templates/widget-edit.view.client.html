@@ -1,0 +1,41 @@
+<nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+    <div class="row">
+        <div class="col-xs-12">
+            <a class="navbar-brand"
+               href="#!/user/{{widgetEditCtrl.userId}}/website/{{widgetEditCtrl.websiteId}}/page/{{widgetEditCtrl.pageId}}/widget"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>Widget Edit</strong>
+            </span>
+            <a class="navbar-brand pull-right" href ng-click="widgetEditCtrl.updateWidget()"><span
+                    class="glyphicon glyphicon-ok"></span></a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid krish-center-container">
+    <div id="top">
+        <div ng-show="widgetEditCtrl.error" class="alert alert-danger krish-alert-style">
+            <strong>{{widgetEditCtrl.error}}</strong>
+        </div>
+        <div ng-show="widgetEditCtrl.message" class="alert alert-info krish-info-style">
+            <strong>{{widgetEditCtrl.message}}</strong>
+        </div>
+    </div>
+    <div ng-switch="widgetEditCtrl.currentWidget.widgetType">
+        <div ng-switch-when="HEADING">
+            <div ng-include="'views/widget/templates/editors/widget-heading-edit.view.client.html'"></div>
+        </div>
+        <div ng-switch-when="IMAGE">
+            <div ng-include="'views/widget/templates/editors/widget-image-edit.view.client.html'"></div>
+        </div>
+        <div ng-switch-when="HTML">
+            <div ng-include="'views/widget/templates/editors/widget-html-edit.view.client.html'"></div>
+        </div>
+        <div ng-switch-when="YOUTUBE">
+            <div ng-include="'views/widget/templates/editors/widget-youtube-edit.view.client.html'"></div>
+        </div>
+    </div>
+</div>
+<div ng-include="'views/common/footer.view.client.html'"></div>
+

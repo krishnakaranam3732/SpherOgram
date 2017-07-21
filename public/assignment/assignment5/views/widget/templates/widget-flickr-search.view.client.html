@@ -1,0 +1,39 @@
+<md-dialog aria-label="Search Flickr">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools navbar-inverse">
+                <h2><strong>Search Flickr</strong></h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon class="glyphicon glyphicon-remove" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="form-group krish-form-group">
+                    <div class="input-group">
+                        <input class="krish-dialog-input" ng-model="searchText" type="text"
+                               data-toggle="tooltip"
+                               title="Enter Search text"
+                               required>
+                        <span class="input-group-btn">
+                <a ng-click="DialogCtrl.searchPhotos(searchText)" class="btn btn-secondary btn-default krish-input-button krish-dialog-button"
+                   type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </a>
+                    </span>
+                    </div>
+                </div>
+                <div class="row krish-flickr">
+                    <div class="col-xs-4" ng-repeat="photo in DialogCtrl.photos.photo">
+                        <img class="img-responsive center-block" ng-click="DialogCtrl.selectPhoto(photo)"
+                             ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_q.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>
+

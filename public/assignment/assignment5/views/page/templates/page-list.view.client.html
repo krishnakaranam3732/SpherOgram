@@ -1,0 +1,48 @@
+<nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#!/user/{{pageCtrl.userId}}/website"><span
+                class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+        <span class="navbar-brand">
+                <strong>Pages</strong>
+            </span>
+        <a class="navbar-brand pull-right"
+           href="#!/user/{{pageCtrl.userId}}/website/{{pageCtrl.websiteId}}/page/new"><span
+                class="glyphicon glyphicon-plus"></span></a>
+
+
+    </div>
+</nav>
+<div class="container-fluid krish-center-container">
+    <div class="list-group">
+        <div id="top">
+            <div ng-show="pageCtrl.error" class="alert alert-danger krish-alert-style">
+                <strong>{{pageCtrl.error}}</strong>
+            </div>
+        </div>
+        <div ng-repeat="page in pageCtrl.pages"
+             class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="row">
+                <div class="col-xs-8 krish-no-wrap-text">
+                    <a href="#!/user/{{pageCtrl.userId}}/website/{{pageCtrl.websiteId}}/page/{{page._id}}/widget"
+                       class="krish-white-link">
+                        <h4><strong>{{page.name}}</strong></h4>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a href="#!/user/{{pageCtrl.userId}}/website/{{pageCtrl.websiteId}}/page/{{page._id}}"
+                       class="krish-white-link"><h4><strong><span
+                            class="glyphicon glyphicon-cog pull-right"></span></strong>
+                    </h4></a>
+                </div>
+            </div>
+            <div class="row hidden-xs">
+                <div class="col-xs-12">
+                    <p>{{page.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/footer.view.client.html'"></div>
+

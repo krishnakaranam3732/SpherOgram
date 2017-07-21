@@ -1,0 +1,32 @@
+<div class="container-fluid krish-center-container">
+
+    <nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+        <div class="container-fluid">
+            <a class="navbar-brand"
+               href="#!/user/{{widgetChooseCtrl.userId}}/website/{{widgetChooseCtrl.websiteId}}/page/{{widgetChooseCtrl.pageId}}/widget"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>Choose Widget</strong>
+            </span>
+
+
+        </div>
+    </nav>
+
+    <div class="list-group">
+        <div ng-repeat="widgetType in widgetChooseCtrl.widgetTypeList"
+             class="list-group-item list-group-item-action flex-column align-items-start krish-list-group-noborder">
+            <div class="row">
+                <div class="col-xs-12 krish-no-wrap-text">
+                    <a href ng-click="widgetChooseCtrl.navigateNewWidget(widgetType)" class="krish-white-link">
+                        <h4><strong>{{widgetType}}</strong></h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include="'views/common/footer.view.client.html'"></div>
+
+</div>
+
