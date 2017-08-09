@@ -1,6 +1,8 @@
 /**
- * Created by krish on 7/20/2017.
+ * Created by krish on 7/6/17.
  */
+
+
 module.exports = function () {
 
     var mongoose = require('mongoose');
@@ -10,18 +12,17 @@ module.exports = function () {
     // Local connection String
     var connectionString = "mongodb://localhost/webdev_summer_2017";
 
-    if (process.env.MLAB_USERNAME_WEBDEV && process.env.MLAB_PASSWORD_WEBDEV) {
-        connectionString = "mongodb://"+process.env.MLAB_USERNAME_WEBDEV + ":" +
-            process.env.MLAB_PASSWORD_WEBDEV + "@" +
-            process.env.MLAB_HOST_WEBDEV + ':' +
-            process.env.MLAB_PORT_WEBDEV + '/' +
-            process.env.MLAB_APP_NAME_WEBDEV;
+    if (process.env.MLAB_USERNAME && process.env.MLAB_PASSWORD) {
+        connectionString = process.env.MLAB_USERNAME + ":" +
+            process.env.MLAB_PASSWORD + "@" +
+            process.env.MLAB_HOST + ':' +
+            process.env.MLAB_PORT + '/' +
+            process.env.MLAB_APP_NAME;
     }
 
     mongoose.connect(connectionString, {
         useMongoClient: true
     });
 
-    console.log("Successfully connected with mongo db "+ connectionString);
-
+    console.log(" Connected with mongo db ");
 };

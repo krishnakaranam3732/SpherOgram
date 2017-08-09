@@ -26,7 +26,7 @@ a:hover {
 html,
 body {
     height: 100%;
-    background: #333 url(../../../pictures/websitebuilder2.jpg) no-repeat fixed center center;
+    background: #333 no-repeat fixed center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

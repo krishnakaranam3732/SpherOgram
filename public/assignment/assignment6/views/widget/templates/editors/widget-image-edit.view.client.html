@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group krish-form-group">
+            <label for="name" class="lead">Name</label>
+            <input type="text" ng-model="widgetEditCtrl.currentWidget.name" id="name" class="form-control"
+                   placeholder="Name"
+                   data-toggle="tooltip"
+                   title="Enter Widget Name" autofocus>
+        </div>
+        <div class="form-group krish-form-group">
+            <label for="text" class="lead">Text</label>
+            <input type="text" ng-model="widgetEditCtrl.currentWidget.text" id="text" class="form-control"
+                   placeholder="Title"
+                   data-toggle="tooltip"
+                   title="Enter Widget Text"
+            >
+        </div>
+        <div class="form-group krish-form-group">
+            <label for="url" class="lead">URL</label>
+            <div class="input-group">
+                <input type="url" ng-model="widgetEditCtrl.currentWidget.url" id="url" class="form-control"
+                       placeholder="URL"
+                       data-toggle="tooltip"
+                       title="Enter Widget URL"
+                       required>
+                <span class="input-group-btn">
+            <md-button class="btn btn-secondary btn-default krish-input-button"
+                       ng-click="widgetEditCtrl.showFlickrSearch($event)">Search <i class="fa fa-flickr fa-lg"
+                                                                                    aria-hidden="true"></i></md-button>
+            </span>
+            </div>
+        </div>
+        <div class="form-group krish-form-group">
+            <label for="width" class="lead">Width</label>
+            <select ng-model="widgetEditCtrl.currentWidget.width"
+                    ng-init="widgetEditCtrl.currentWidget.width = (widgetEditCtrl.currentWidget.width)?widgetEditCtrl.currentWidget.width:'100%'"
+                    id="width" class="form-control"
+                    data-toggle="tooltip"
+                    title="Enter Widget width" required>
+                <option value="25%">25%</option>
+                <option value="50%">50%</option>
+                <option value="75%">75%</option>
+                <option value="100%">100%</option>
+            </select>
+        </div>
+        <div class="form-group krish-form-group">
+            <form id="imgForm" ng-submit="widgetEditCtrl.uploadImage()">
+                <label for="upload" class="lead">Upload</label>
+                <input type="file" id="upload" class="form-control"
+                       data-toggle="tooltip" accept="image/gif, image/jpeg, image/png"
+                       title="Select Widget image" required>
+                <button class="btn btn-lg btn-block krish-upload-button" id="uploadButton" type="submit"
+                        data-loading-text="<i class='fa fa-spinner fa-spin '></i> Uploading">Upload Image
+                </button>
+            </form>
+        </div>
+
+        <div class="form-group krish-form-group">
+            <a href ng-click="widgetEditCtrl.deleteWidget()" class="btn btn-lg btn-block krish-cancel"
+               type="submit">Delete</a>
+        </div>
+    </div>
+</div>
+

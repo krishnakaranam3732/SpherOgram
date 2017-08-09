@@ -1,0 +1,64 @@
+<div class="container krish-center-container">
+    <h3 class="form-signin-heading"> Admin Home </h3>
+
+    <uib-tabset ng-attr-active="adminCtrl.tab" justified="true">
+        <uib-tab id="role" index="0" heading="Change Roles" ng-click="adminCtrl.reset()">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4> Users </h4>
+                </div>
+            </div>
+            <div ng-show="adminCtrl.message" id="message" class="alert alert-info krish-info-style">
+                {{adminCtrl.message}}
+            </div>
+            <div ng-show="adminCtrl.error" id="error" class="alert alert-danger krish-alert-style">
+                <strong>{{adminCtrl.error}}</strong></div>
+            <div ng-repeat="user in adminCtrl.users"
+                 class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="row">
+                    <div class="col-xs-6 krish-no-wrap-text">
+                        <h4><strong>{{user.firstName}} {{user.lastName}}</strong></h4>
+                    </div>
+                    <div class="col-xs-4">
+                        <form id="{{user._id +'_form'}}" ng-submit="adminCtrl.updateProfile(user)">
+                            <div class="form-group form-check checkbox lead">
+                                <label class="form-check-label">
+                                    <input type="checkbox" id="{{user._id +'_ADMIN'}}"
+                                           ng-checked="user.roles.indexOf('ADMIN') !== -1" id=""
+                                           class="form-check-input">
+                                    Admin </label>
+                            </div>
+                            <div class="form-group form-check checkbox lead">
+                                <label class="form-check-label">
+                                    <input type="checkbox" id="{{user._id +'_USER'}}"
+                                           ng-checked="user.roles.indexOf('USER') !== -1" class="form-check-input">
+                                    User </label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="submit" form="{{user._id +'_form'}}" ng-click="adminCtrl.editUser(user)"
+                                class="btn btn-default btn-transparent"><h4><strong><span
+                                class="glyphicon glyphicon-ok pull-right"></span></strong>
+                        </h4></button>
+                    </div>
+                </div>
+                <div class="row hidden-xs">
+                    <div class="col-xs-12">
+                        <p><strong>Username :</strong> {{user.username}}
+                            <span class="pull-right"><strong>Email :</strong> {{user.email}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab id="user" index="1" heading="Add User" ng-click="adminCtrl.reset()">
+            <div ng-include="'views/admin/templates/user-create.view.client.html'">
+            </div>
+        </uib-tab>
+    </uib-tabset>
+
+</div>
+
+<div ng-include="'views/common/footer.view.client.html'"></div>

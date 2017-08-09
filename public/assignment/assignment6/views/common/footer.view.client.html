@@ -1,0 +1,24 @@
+<div ng-controller="FooterController as footerCtrl">
+    <nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-bottom affix">
+        <div class="container-fluid">
+            <a class="navbar-brand krish-navbar-reducedSize pull-left" ng-href="#!/"><i
+                    class="fa fa-home fa-lg" aria-hidden="true"></i><span
+                    class="hidden-xs">&nbsp; Home</span></a>
+            <a ng-show="footerCtrl.user.roles.indexOf('USER') !== -1"
+               class="navbar-brand krish-navbar-reducedSize pull-left" ng-href="#!/website"><i
+                    class="fa fa-globe fa-lg" aria-hidden="true"></i><span
+                    class="hidden-xs">&nbsp; Websites</span></a>
+            <a ng-show="footerCtrl.user.roles.indexOf('ADMIN') !== -1"
+               class="navbar-brand krish-navbar-reducedSize pull-left" ng-href="#!/admin"><i
+                    class="fa fa-unlock-alt fa-lg" aria-hidden="true"></i><span
+                    class="hidden-xs">&nbsp; Admin</span></a>
+            <a class="navbar-brand krish-navbar-reducedSize pull-right" href ng-click="footerCtrl.logout()"><i
+                    class="fa fa-sign-out fa-lg" aria-hidden="true"></i><span
+                    class="hidden-xs">&nbsp; Logout</span></a>
+            <a ng-show="footerCtrl.profilePage" class="navbar-brand  krish-navbar-reducedSize pull-right" href
+               ng-click="footerCtrl.reloadPage()"><span
+                    class="glyphicon glyphicon-user"></span><span
+                    class="hidden-xs">&nbsp; Profile</span></a>
+        </div>
+    </nav>
+</div>

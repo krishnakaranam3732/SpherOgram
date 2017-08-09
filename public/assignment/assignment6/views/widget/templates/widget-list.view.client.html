@@ -1,0 +1,56 @@
+<div class="container-fluid krish-center-container">
+
+    <nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#!/website/{{widgetCtrl.websiteId}}/page"><span
+                    class="glyphicon glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand">
+                <strong>Widgets</strong>
+            </span>
+            <a class="navbar-brand pull-right"
+               href="#!/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget/new"><span
+                    class="glyphicon glyphicon-plus"></span></a>
+
+
+        </div>
+    </nav>
+    <div id="top" class="krish-home-page-center">
+        <div ng-show="widgetEditCtrl.error" class="alert alert-danger krish-alert-style">
+            <strong>{{widgetEditCtrl.error}}</strong>
+        </div>
+        <div ng-show="error" class="alert alert-danger krish-alert-style">
+            <strong>{{error}}</strong>
+        </div>
+    </div>
+
+    <ul wbdv-sortable page-id="{{widgetCtrl.pageId}}" class="row krish-widget krish-widget-list">
+        <li ng-repeat="widget in widgetCtrl.widgets" class="col-xs-12">
+            <div class="krish-widget-toolbar krish-widget-toolbar-ontop ">
+                <a class="krish-white-link handle"
+                   href="#!/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget"><span
+                        class="glyphicon glyphicon-menu-hamburger pull-right"></span></a>
+                <a class="krish-white-link"
+                   href="#!/website/{{widgetCtrl.websiteId}}/page/{{widgetCtrl.pageId}}/widget/{{widget._id}}"><span
+                        class="glyphicon glyphicon-cog pull-right"></span></a>
+            </div>
+            <div ng-switch="widget.type">
+                <div ng-switch-when="HEADING">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-heading.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-image.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="HTML">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-html.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-youtube.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="TEXT">
+                    <div ng-include="'views/widget/templates/typeTemplates/widget-text.view.client.html'"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div ng-include="'views/common/footer.view.client.html'"></div>

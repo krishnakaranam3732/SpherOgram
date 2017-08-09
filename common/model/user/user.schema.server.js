@@ -1,17 +1,29 @@
 /**
- * Created by krish on 7/20/2017.
+ * Created by krish on 7/6/17.
  */
+
 var mongoose = require('mongoose');
 
 var userSchema = mongoose.Schema({
 
     username: {type: String, unique: true, required: true},
-    password: {type: String, required: true},
+    password: {type: String},
     firstName: String,
     lastName: String,
     email: String,
+    phone: String,
     websites: [{type: mongoose.Schema.Types.ObjectId, ref: 'WebsiteModel'}],
-    dateCreated: {type: Date, default: new Date()}
+    dateCreated: {type: Date, default: new Date()},
+    roles: [{type: String, enum: ['USER', 'ADMIN'], default: 'USER'}],
+    google: {
+        id: String,
+        token: String
+    },
+    facebook: {
+        id: String,
+        token: String
+    }
+
 
 }, {collection: 'User'});
 
