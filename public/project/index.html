@@ -1,10 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Sphereogram">
 <head>
     <meta charset="UTF-8">
-    <title>Project Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Sphereogram</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/2054f68714.css">
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/MyStyle.css">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+
+    <!-- moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+    <!-- Angular moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js"></script>
+
+    <!-- jquery ui -->
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+
+    <!-- touch pinch -->
+    <script src="vendor/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- ui bootstrap -->
+    <script src="vendor/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+    <!-- lodash js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+    <!-- fusion charts -->
+    <script type="text/javascript" src="vendor/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="vendor/angular-fusioncharts.min.js"></script>
+
+    <!-- app js -->
+    <script src="app.js"></script>
+
+    <!-- config js -->
+    <script src="config.js"></script>
+    <script src="views/user/user-config.js"></script>
+    <script src="views/search/search-config.js"></script>
+
+    <!-- services -->
+    <script src="services/user.service.client.js"></script>
+    <script src="services/search.service.client.js"></script>
+
+    <!-- controllers -->
+    <!-- home -->
+    <script src="views/common/controller/home.controller.client.js"></script>
+    <script src="views/common/controller/header.controller.client.js"></script>
+    <script src="views/common/controller/footer.controller.client.js"></script>
+    <!-- admin 
+    <script src="views/admin/controller/admin.controller.client.js"></script>
+    <script src="views/admin/controller/admin-recipe.controller.client.js"></script> -->
+    <!-- user -->
+    <script src="views/user/controller/login.controller.client.js"></script>
+    <script src="views/user/controller/register.controller.client.js"></script>
+    <script src="views/user/controller/profile.controller.client.js"></script>
+	<script src="views/user/controller/discover.controller.client.js"></script>
+
+    <script src="views/search/controller/usersearch.controller.client.js"></script>
+    <script src="views/search/controller/userview.controller.client.js"></script>
+    <!-- meal Plan 
+    <script src="views/mealPlan/controller/meal-planner.controller.client.js"></script>
+    <script src="views/mealPlan/controller/meal-recipe-detail.controller.client.js"></script>
+    <script src="views/mealPlan/controller/meal-plan-detail.controller.client.js"></script>   -->
+
+    <!-- recipe 
+    <script src="views/recipe/controller/recipe-search.controller.client.js"></script>
+    <script src="views/recipe/controller/recipe-add.controller.client.js"></script>
+    <script src="views/recipe/controller/recipe-search-api.controller.client.js"></script>
+    <script src="views/recipe/controller/recipe-collection.controller.client.js"></script>
+    <script src="views/recipe/controller/recipe-bag.controller.client.js"></script>
+    <script src="views/recipe/controller/recipe-flickr-search.controller.client.js"></script>
+    <script src="views/recipe/controller/recipe-detail.controller.client.js"></script>   -->
+
 </head>
+
 <body>
-    <h1>Project Home Page</h1>
+
+<div ng-View class="container"></div>
+
+
+<!-- ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Bootstrap core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- font awesome -->
+<script src="https://use.fontawesome.com/431e08f07b.js"></script>
+
 </body>
 </html>

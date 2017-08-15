@@ -1,0 +1,53 @@
+<div ng-include="'views/common/templates/header.view.client.html'"></div>
+<div class="godown-60" id="godown"></div>
+
+<div class="container" ng-controller="UserViewController as UserViewCtrl">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="todo">
+                <div >
+                    <div class="todo-search-field"><h3> {{UserViewCtrl.user.username}} </h3></div>
+                </div>
+                <ul>
+                    <li class="todo">
+                        <div class="todo-content">
+                            <h4 class="todo-name">
+                                 <strong>{{UserViewCtrl.user.firstName}} {{UserViewCtrl.user.lastName}}</strong>
+                            </h4>
+                        </div>
+                    </li>
+
+                    <div class="todo">
+                        <div class="profile-userbuttons">
+                            <button type="button" class="btn btn-success btn-sm">Follow</button>
+                            <button type="button" class="btn btn-danger btn-sm">unFollow</button>
+                        </div>
+                    </div>
+
+                    <li class="todo">
+                        <div class="todo-content">
+                            <h4 class="todo-name">
+                                <strong>{{UserViewCtrl.user.email}}</strong>
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="profile-content">
+                <div ng-show="UserViewController.error" id="errorMessage"><strong>{{UserViewCtrl.error}}</strong>
+                </div>
+                <div class="row" ng-if="UserViewCtrl.posts">
+                    <div class="col-xs-4" ng-repeat="post in UserViewCtrl.posts">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="godown-60" id="godown"></div>
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

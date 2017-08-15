@@ -54,7 +54,6 @@ function addWebsite(userId, websiteId) {
             user.websites.push(websiteId);
             return user.save();
         })
-
 }
 
 function findUserByGoogleId(googleId) {

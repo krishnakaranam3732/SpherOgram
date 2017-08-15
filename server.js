@@ -39,6 +39,8 @@ require('./assignment/assignment5/app.js')(app);
 
 require('./assignment/assignment6/app.js')(app);
 
+require('./project/app.js')(app);
+
 app.listen(port);
 
 console.log("listening from " + port);
