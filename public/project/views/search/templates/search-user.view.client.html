@@ -4,10 +4,10 @@
 
 
         <h2 class="form-signin-heading" id="top">Search User</h2>
-        <div ng-show="UserSearchCtrl.error" id="errorMessage" class="alert alert-danger shr-alert-style"><strong>{{UserSearchCtrl.error}}</strong>
+        <div ng-show="UserSearchCtrl.error" id="errorMessage" class="alert alert-danger"><strong>{{UserSearchCtrl.error}}</strong>
         </div>
     <div class="row">
-        <div class="col-xs-3">
+        <div class="col-md-4">
         <div class="form-group">
             <input type="text" ng-model="UserSearchCtrl.title" id="title" class="form-control" placeholder="Username"
                    data-toggle="tooltip"
@@ -17,18 +17,29 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-3">
-        <button class="btn btn-lg btn-block" ng-click = "UserSearchCtrl.findUserByUsername(UserSearchCtrl.title)">Search</button>
+        <div class="col-md-4">
+        <button class="btn btn-lg btn-block col-md-4" ng-click = "UserSearchCtrl.findUserByUsername(UserSearchCtrl.title)">Search</button>
         </div>
     </div>
     <div ng-show="UserSearchCtrl.user">
         <div class="row">
-            <div class="col-xs-3">
+            <div class="col-md-4">
         <h2> results :</h2>
                 <div class="tile">
                     <h3 class="tile-title">{{UserSearchCtrl.user.username}}</h3>
-                    <p>{{UserSearchCtrl.user.firstName}} {{UserSearchCtrl.user.lastName}} {{UserSearchCtrl.user._id}}</p>
-                    <a class="btn btn-primary btn-large btn-block" ng-href="#!/user/{{UserSearchCtrl.user._id}}">View User Profile</a>
+                    <p>{{UserSearchCtrl.user.firstName}} {{UserSearchCtrl.user.lastName}}</p>
+                    <div class="profile-userbuttons">
+
+                        <div ng-if="!UserSearchCtrl.user.followed">
+                        <button type="button" ng-click="UserSearchCtrl.follow()" class="btn btn-success btn-sm">Follow</button>
+                        </div>
+                        <div ng-if="UserSearchCtrl.user.followed">
+                        <button type="button" ng-click="UserSearchCtrl.follow()" class="btn btn-danger btn-sm">unFollow</button>
+                        </div>
+
+                    </div>
+                    </br>
+                    <a class="btn btn-primary btn-large btn-block" ng-href="#!/user/{{UserSearchCtrl.user._id}}">View {{UserSearchCtrl.user.username}}'s Profile</a>
                 </div>
 
             </div>

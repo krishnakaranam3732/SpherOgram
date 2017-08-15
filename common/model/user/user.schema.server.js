@@ -12,7 +12,7 @@ var userSchema = mongoose.Schema({
     lastName: String,
     email: String,
     phone: String,
-    websites: [{type: mongoose.Schema.Types.ObjectId, ref: 'WebsiteModel'}],
+    following: [{type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'}],
     dateCreated: {type: Date, default: new Date()},
     roles: [{type: String, enum: ['USER', 'ADMIN'], default: 'USER'}],
     google: {
@@ -23,7 +23,6 @@ var userSchema = mongoose.Schema({
         id: String,
         token: String
     }
-
 
 }, {collection: 'User'});
 

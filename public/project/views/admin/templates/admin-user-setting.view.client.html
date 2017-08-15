@@ -1,0 +1,83 @@
+<div ng-include="'views/common/templates/header.view.client.html'"></div>
+<div class="godown-60" id="godown"></div>
+<div class="container center-container" ng-controller="AdminUserSettingController as AdminUserSettingCtrl">
+    <form class="form-signin" ng-submit="AdminUserSettingCtrl.createProfile()">
+        <h2 class="form-signin-heading" id="top">Create Account</h2>
+        <div class="form-group form-group">
+            <p class="pull-right"><sup><i class="fa fa-asterisk fa-1 like" aria-hidden="true"></i>
+            </sup> indicates required fields</p>
+        </div>
+        <div ng-show="AdminUserSettingCtrl.error" class="alert alert-danger alert-style">
+            <strong>{{AdminUserSettingCtrl.error}}</strong></div>
+        <div ng-show="AdminUserSettingCtrl.userError" class="alert alert-danger alert-style">
+            <strong>{{AdminUserSettingCtrl.userError}}</strong></div>
+        <div ng-show="AdminUserSettingCtrl.message" class="alert alert-success alert-style">
+            <strong>{{AdminUserSettingCtrl.message}}</strong></div>
+        <div class="form-group">
+            <label for="username" class="lead">User Name</label> <sup><i class="fa fa-asterisk fa-1 like"
+                                                                         aria-hidden="true"></i></sup>
+            <input type="text" ng-model="AdminUserSettingCtrl.user.username" id="username" class="form-control"
+                   placeholder="User Name" data-toggle="tooltip"
+                   title="Enter a username" required autofocus autocorrect="off" autocapitalize="off">
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="lead">Password</label> <sup><i class="fa fa-asterisk fa-1 like"
+                                                                             aria-hidden="true"></i></sup>
+            <input type="password" ng-model="AdminUserSettingCtrl.user.password" id="inputPassword" class="form-control"
+                   placeholder="Password" data-toggle="tooltip"
+                   title="Enter the password" required>
+        </div>
+        <div class="form-group">
+            <label for="verifyInputPassword" class="lead">Verify Password</label> <sup><i
+                class="fa fa-asterisk fa-1 like" aria-hidden="true"></i></sup>
+            <input type="password" ng-model="AdminUserSettingCtrl.verifyPassword" id="verifyInputPassword" class="form-control"
+                   placeholder="Verify Password"
+                   data-toggle="tooltip" title="Verify your password" required>
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="lead">First Name</label> <sup><i class="fa fa-asterisk fa-1 like"
+                                                                           aria-hidden="true"></i></sup>
+            <input type="text" ng-model="AdminUserSettingCtrl.user.firstName" id="firstname" class="form-control"
+                   placeholder="First Name" data-toggle="tooltip"
+                   title="Enter your First Name" required>
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="lead">Last Name</label> <sup><i class="fa fa-asterisk fa-1 like"
+                                                                         aria-hidden="true"></i></sup>
+            <input type="text" ng-model="AdminUserSettingCtrl.user.lastName" id="lastname" class="form-control"
+                   placeholder="Last Name" data-toggle="tooltip"
+                   title="Enter your Last Name" required>
+        </div>
+        <div class="form-group form-check checkbox lead">
+            <label class="form-check-label">
+                <input type="checkbox" id="_ADMIN"
+                       ng-model="AdminUserSettingCtrl.user._admin" id=""
+                       class="form-check-input">
+                Admin </label>
+        </div>
+        <div class="form-group form-check checkbox lead">
+            <label class="form-check-label">
+                <input type="checkbox" id="_USER"
+                       ng-model="AdminUserSettingCtrl.user._user" class="form-check-input">
+                User </label>
+        </div>
+        <div class="form-group">
+            <label for="email" class="lead">Email</label> <sup><i class="fa fa-asterisk fa-1 like"
+                                                                  aria-hidden="true"></i></sup>
+            <input type="email" ng-model="AdminUserSettingCtrl.user.email" id="email" class="form-control"
+                   placeholder="abc@xyz.com" data-toggle="tooltip"
+                   title="Enter your email address" required>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="lead">Phone</label>
+            <input type="text" ng-model="AdminUserSettingCtrl.user.phone" id="phone" class="form-control"
+                   placeholder="XXX-XXX-XXXX" pattern="\d{3}[\-]*\d{3}[\-]*\d{4}" data-toggle="tooltip"
+                   title="Enter your phone number">
+        </div>
+        <button type="submit" class="btn btn-lg btn-block">Register</button>
+        <a href="#!/" class="btn btn-lg btn-block cancel" type="submit">Cancel</a>
+    </form>
+</div>
+<div class="godown-60" id="godown"></div>
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>
+

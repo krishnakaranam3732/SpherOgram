@@ -2,9 +2,8 @@
 <div class="godown-60" id="godown"></div>
 <div class="container center-container" ng-controller="PostViewController as PostViewCtrl">
 
-
     <h2 class="form-signin-heading" id="top">Post</h2>
-    <div ng-show="PostViewCtrl.error" id="errorMessage" class="alert alert-danger shr-alert-style"><strong>{{PostViewCtrl.error}}</strong>
+    <div ng-show="PostViewCtrl.error" id="errorMessage" class="alert alert-danger"><strong>{{PostViewCtrl.error}}</strong>
     </div>
 
     <div ng-show="PostViewCtrl.post">
@@ -12,22 +11,34 @@
             <div class="col-xs-6">
         <h2> results :</h2>
                 <div class="tile">
-                    <h3 class="tile-title">{{PostViewCtrl.post.pano_id}}</h3>
+                    <h3 class="tile-title">{{PostViewCtrl.post.description}}</h3>
+                    <img class="img-responsive center-block"
+                         src="{{PostViewCtrl.URL}}">
+                    <div class="col-xs-4">
+                        <a ng-if="!PostViewCtrl.currentPost.liked" href ng-click="PostViewCtrl.likePost()"
+                       class="pull-right"><i
+                            class="fa fa-heart-o"
+                            aria-hidden="true" data-toggle="tooltip"
+                            title="Like Post"></i><span>&nbsp; Like</span></a>
+                        <a ng-if="PostViewCtrl.currentPost.liked" href ng-click="PostViewCtrl.likePost()"
+                       class="pull-right"><i
+                            class="fa fa-heart"
+                            aria-hidden="true" data-toggle="tooltip"
+                            title="UnLike Post"></i><span>&nbsp; UnLike</span></a></div>
+
+                    <div class="col-xs-8">
+                        <a href ng-click="PostViewCtrl.deletePost()" ng-if="PostViewCtrl.currentPost.canDelete" class="pull-right">
+                        <i class="fa fa-trash"
+                            aria-hidden="true" data-toggle="tooltip"
+                            title="Delete Post"></i>
+                        <span>&nbsp; Delete Post</span>
+                        </a>
+                        </div>
+
+                    <br>
                 </div>
-                <a ng-if="!PostViewCtrl.currentPost.liked" href ng-click="PostViewCtrl.likePost()"
-                   class="pull-right"><i
-                        class="fa fa-heart-o"
-                        aria-hidden="true" data-toggle="tooltip"
-                        title="Like Post"></i><span>&nbsp; Like</span></a>
-                <a ng-if="PostViewCtrl.currentPost.liked" href ng-click="PostViewCtrl.likePost()"
-                   class="pull-right"><i
-                        class="fa fa-heart"
-                        aria-hidden="true" data-toggle="tooltip"
-                        title="UnLike Post"></i><span>&nbsp; UnLike</span></a>
             </div>
         </div>
-
-
-    </div>
+     </div>
 <div class="godown-60" id="godown"></div>
 <div ng-include="'views/common/templates/footer.view.client.html'"></div>

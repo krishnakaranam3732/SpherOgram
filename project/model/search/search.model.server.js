@@ -14,22 +14,28 @@ var searchModel = mongoose.model('searchModel', userSchema);
 searchModel.findPostsByOwner = findPostsByOwner;
 searchModel.findUserByUserName = findUserByUserName;
 searchModel.findUserById = findUserById;
+searchModel.updateUser = updateUser;
+searchModel.updateRemoveUser = updateRemoveUser;
+
 
 module.exports = searchModel;
 
 function findPostsByOwner(userId) {
-    console.log("search model server findPostsByOwner "+ userId);
-    console.log("search model server findPostsByOwner "+ postModel2.findById({owner: userId}));
-    return postModel2.findById({owner: userId});
+    return postModel2.find({owner: userId});
 }
 
 function findUserByUserName(username) {
-    console.log("search model server "+ username);
     return userModel2.findOne({username: username});
 }
 
 function findUserById(userId) {
-    console.log("search model server byId "+ userId);
-    console.log("search model server byId res "+ userModel2.findById(userId));
     return userModel2.findById(userId);
+}
+
+function updateRemoveUser(userId,remove,updateUser) {
+    return userModel2.findOneAndUpdate({_id: userId}, {$pull: {following: remove}});
+}
+
+function updateUser(userId, updateUser) {
+    return userModel2.findOneAndUpdate({_id: userId}, {$set: updateUser});
 }

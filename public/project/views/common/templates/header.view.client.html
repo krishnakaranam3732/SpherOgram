@@ -32,10 +32,15 @@
                             class="fa fa-search" aria-hidden="true" data-toggle="tooltip" title="Search"></i><span
                             class="hidden-xs">&nbsp; Search</span></a>
                     <a ng-show="headerCtrl.user.roles.indexOf('USER') !== -1" class="navbar-brand pull-right"
-                       href="#!/feed"><i
+                       href="#!/feed/{{headerCtrl.user._id}}"><i
                             class="fa fa-instagram" aria-hidden="true" data-toggle="tooltip"
                             title="feed"></i><span
                             class="hidden-xs">&nbsp; Feed</span></a>
+                    <a ng-show="headerCtrl.user.roles.indexOf('USER') !== -1" class="navbar-brand pull-right"
+                       href="#!/user/{{headerCtrl.user._id}}"><i
+                            class="fa fa-inbox" aria-hidden="true" data-toggle="tooltip"
+                            title="feed"></i><span
+                            class="hidden-xs">&nbsp; My Posts</span></a>
                 </div>
             </div>
         </div>

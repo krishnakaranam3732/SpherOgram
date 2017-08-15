@@ -40,9 +40,7 @@
                     profileCtrl.verifyPassword = null;
                     $anchorScroll('top');
                 }, profileError);
-
         }
-
 
         function deleteUser() {
             profileCtrl.error = null;

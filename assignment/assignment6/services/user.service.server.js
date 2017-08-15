@@ -35,7 +35,6 @@ module.exports = function (app) {
 
     app.get('/api/assignment6/verifyAdmin', verifyAdmin);
 
-
     app.get('/auth/assignment6/facebook/callback',
         passport.authenticate('facebook', {
             successRedirect: '/assignment/assignment6',

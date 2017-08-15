@@ -5,55 +5,48 @@ module.exports = function (app) {
 
     var postModel = require('../model/post/post.model.server');
 
-    app.post('/api/project/post', validateSession, createPost);
+    app.post('/api/project/user/post', validateSession, createPost);
 
-    app.get('/api/project/post/:postId', isAdminOrUser, findPostById);
+    app.get('/api/project/user/post/:postId', isAdminOrUser, findPostById);
 
-    app.get('/api/project/post/user/:userId', validateSession, findPostsByUser);
+    app.get('/api/project/user/post/user/:userId', validateSession, findPostsByUser);
 
 //findPostByDescriptionAndOwner
 
-    app.put('/api/project/post/:postId', validateSession, updatePost);
+    app.put('/api/project/user/post/:postId', validateSession, updatePost);
 
-    app.delete('/api/project/post/:postId', validateSession, deletePost);
+    app.delete('/api/project/user/post/delete/:postId', validateSession, deletePost);
 
-    app.get('/api/project/post/share/:postId', validateSession, sharePost);
+    app.get('/api/project/user/post/share/:postId', validateSession, sharePost);
 
-    app.get('/api/project/post/unShare/:postId', validateSession, unSharePost);
+    app.get('/api/project/user/post/unShare/:postId', validateSession, unSharePost);
 
-    app.get('/api/project/recentlySharedPosts', isAdminOrUser, recentlySharedPosts);
+    app.get('/api/project/user/post/liked/:postId/:userId', validateSession, findpostiflikedbyuser);
 
-    app.get('/api/project/mostLikedPosts', isAdmin, mostLikedPosts);
+    app.get('/api/project/feed/:userId', isAdminOrUser, recentlySharedPosts);
 
-    app.get('/api/project/post/like/:postId', isAdminOrUser, likePost);
+    app.get('/api/project/user/mostLikedPosts', isAdmin, mostLikedPosts);
 
-    app.get('/api/project/post/unLike/:postId', isAdminOrUser, unLikePost);
+    app.get('/api/project/user/post/like/:postId', isAdminOrUser, likePost);
+
+    app.get('/api/project/user/post/unLike/:postId', isAdminOrUser, unLikePost);
 
     function createPost(req, res) {
         var post = req.body;
         post.owner = req.user._id;
-        postModel.findRecipeByDescriptionAndOwner(post.label, req.user._id)
-            .then(function (postFound) {
-                if (postFound) {
-                    res.status(400).send(' Post already exists in your collection ');
+            postModel.createPost(post)
+                .then(function (post) {
+                 if (post) {
+                    res.json(post);
+                        }
+                 else {
+                     res.status(400).send(' Post could not be created: ' + err);
+                 }
+                }, function (err) {
+                    res.status(400).send(' Post could not be created: ' + err);
+                });
                 }
-                else {
-                    postModel.createPost(post)
-                        .then(function (post) {
-                            if (post) {
-                                res.json(post);
-                            }
-                            else {
-                                res.status(400).send(' Post could not be created: ' + err);
-                            }
-                        }, function (err) {
-                            res.status(400).send(' Post could not be created: ' + err);
-                        })
-                }
-            }, function (err) {
-                res.status(400).send(' Post could not be created: ' + err);
-            });
-    }
+
 
     function findPostById(req, res) {
         var postId = req.params.postId;
@@ -63,10 +56,26 @@ module.exports = function (app) {
                     res.json(post);
                 }
                 else {
-                    res.status(404).send(' Post not found ');
+                    res.status(404).send('1 Post not found ');
                 }
             }, function (err) {
-                res.status(404).send(' Post not found ');
+                res.status(404).send('2 Post not found ');
+            })
+    }
+
+    function findpostiflikedbyuser(req, res) {
+        var postId = req.params.postId;
+        var userId = req.params.userId;
+        postModel.findpostiflikedbyuser(userId,postId)
+            .then(function (post) {
+                if (post) {
+                    res.json(post);
+                }
+                else {
+                    res.status(404).send('1 Post not found ');
+                }
+            }, function (err) {
+                res.status(404).send('2 Post not found ');
             })
     }
 
@@ -148,7 +157,7 @@ module.exports = function (app) {
 
     function sharePost(req, res) {
         var postId = req.params.postId;
-        postModel.shareRecipe(postId)
+        postModel.sharePost(postId)
             .then(function (post) {
                 if (post) {
                     res.json(post);
@@ -163,7 +172,7 @@ module.exports = function (app) {
 
     function unSharePost(req, res) {
         var postId = req.params.postId;
-        postModel.unShareRecipe(postId)
+        postModel.unSharePost(postId)
             .then(function (post) {
                 if (post) {
                     res.json(post);
@@ -265,7 +274,7 @@ module.exports = function (app) {
     }
 
     function isAdminOrUser(req, res, next) {
-        if (req.isAuthenticated() && req.user.roles.indexOf('ADMIN') !== -1) {
+        if (req.isAuthenticated()) {
             next();
         }
         else if (req.isAuthenticated() && req.user._id.toString() === req.params.userId) {

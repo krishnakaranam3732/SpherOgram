@@ -11,13 +11,18 @@
         var api = {
             findUserByUsername: findUserByUsername,
             findUserById: findUserById,
-            findPostsByOwner: findPostsByOwner
+            findPostsByOwner: findPostsByOwner,
+            follow: follow,
+            unfollow : unfollow
         };
         return api;
 
         this.findUserByUsername = findUserByUsername;
         this.findUserById = findUserById;
         this.findPostsByOwner = findPostsByOwner;
+        this.follow = follow;
+        this.unfollow = unfollow;
+
 
         function findUserByUsername(username) {
             var url = searchURL + '/' + username;
@@ -42,6 +47,23 @@
                     return response.data;
                 });
         }
+
+        function follow(userId) {
+            var url = '/api/project/search/user/follow/' + userId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function unfollow(userId) {
+            var url = '/api/project/search/user/unfollow/' + userId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
 
     }
 })();

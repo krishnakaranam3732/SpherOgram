@@ -1,8 +1,8 @@
 /**
  * Created by krish on 7/6/17.
  */
-var userSchema = require('./../post/post.schema.server');
-var postSchema = require('./../../../common/model/user/user.schema.server');
+var postSchema = require('./../post/post.schema.server');
+var userSchema = require('./../../../common/model/user/user.schema.server');
 
 var mongoose = require('mongoose');
 
@@ -19,6 +19,7 @@ postModel.sharePost = sharePost;
 postModel.unSharePost = unSharePost;
 postModel.recentlySharedPosts = recentlySharedPosts;
 postModel.mostLikedPosts = mostLikedPosts;
+postModel.findpostiflikedbyuser = findpostiflikedbyuser;
 
 module.exports = postModel;
 
@@ -28,7 +29,7 @@ function createPost(post) {
 }
 
 function findPostById(postId) {
-    return postModel.findById(postId).populate('owner').exec();
+    return postModel.findById(postId);
 }
 
 function findPostsByOwner(userId) {
@@ -44,11 +45,10 @@ function updatePost(postId, updatePost) {
 }
 
 function deletePost(postId) {
-    return postModel.findById(postId)
-        .then(function (post) {
-            return postModel.findOneAndRemove({_id: postId});
-        }, function (err) {
-            return null;
+    return postModel
+        .remove({_id: postId})
+        .then(function (status) {
+            return status;
         });
 }
 
@@ -56,12 +56,16 @@ function sharePost(postId) {
     return postModel.findOneAndUpdate({_id: postId}, {$set: {shared: true, dateShared: new Date()}});
 }
 
+function findpostiflikedbyuser(userId,postId) {
+    return postModel.find({_id: postId, likedUsers: userId});
+}
+
 function unSharePost(postId) {
     return postModel.findOneAndUpdate({_id: postId}, {$set: {shared: false, dateShared: null}});
 }
 
-function recentlySharedPosts() {
-    return postModel.find({shared: true}).sort({dateShared: -1}).limit(3).populate('owner');
+function recentlySharedPosts(userId) {
+    return postModel.find().sort({dateShared: -1}).limit(30).populate('owner');
 }
 
 function mostLikedPosts() {

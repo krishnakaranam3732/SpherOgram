@@ -1,0 +1,50 @@
+<div ng-include="'views/common/templates/header.view.client.html'"></div>
+<div class="godown-60" id="godown"></div>
+<div class="container center-container" ng-controller="DiscoverPostAddController as DiscoverPostAddCtrl">
+
+    <form class="form-signin col-md-6" >
+        <h2 class="form-signin-heading" id="topo">Create Post with Place search</h2>
+
+        <div ng-show="DiscoverPostAddCtrl.error1" class="alert alert-danger alert-style">
+            <strong>{{DiscoverPostAddCtrl.error1}}</strong></div>
+        <div ng-show="DiscoverPostAddCtrl.message1" class="alert alert-success alert-style">
+            <strong>{{DiscoverPostAddCtrl.message1}}</strong></div>
+        <div class="form-group">
+            <label for="place" class="lead">Place</label>
+            <input type="text" ng-model="DiscoverPostAddCtrl.place" id="place" class="form-control"
+                   placeholder="Place" data-toggle="tooltip"
+                   title="Enter a username" required autofocus autocorrect="off" autocapitalize="off">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-block" ng-click = "DiscoverPostAddCtrl.searchPost(DiscoverPostAddCtrl.place)">search for a panorama</button>
+    </form>
+
+
+    <form class="form-signin col-md-6" ng-submit="DiscoverPostAddCtrl.createPost()">
+        <h2 class="form-signin-heading" id="top">Create Post with Panorama Id</h2>
+
+        <div ng-show="DiscoverPostAddCtrl.error2" class="alert alert-danger alert-style">
+            <strong>{{DiscoverPostAddCtrl.error2}}</strong></div>
+        <div ng-show="DiscoverPostAddCtrl.message2" class="alert alert-success alert-style">
+            <strong>{{DiscoverPostAddCtrl.message2}}</strong></div>
+        <div class="form-group">
+            <label for="pano_id" class="lead">Panorama Id</label>
+            <input type="text" ng-model="DiscoverPostAddCtrl.post.pano_id" id="pano_id" class="form-control"
+                   placeholder="Panorama Id" data-toggle="tooltip"
+                   title="Enter a username" required autofocus autocorrect="off" autocapitalize="off">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-block">Create Post</button>
+    </form>
+
+    <div ng-show="DiscoverPostAddCtrl.response" class="col-md-3">
+        <div class="tile">
+            <img class="img-responsive center-block"
+                 src="{{DiscoverPostAddCtrl.URL}}">
+        </div>
+            </div>
+    </div>
+</div>
+<div class="godown-60" id="godown"></div>
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>
+

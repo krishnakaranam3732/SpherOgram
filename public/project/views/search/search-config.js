@@ -30,6 +30,7 @@
             userService.validateSession()
                 .then(function (user) {
                     deferred.resolve(user);
+                    currentUser = user;
                 }, function () {
                     deferred.reject();
                     $location.url('/login');

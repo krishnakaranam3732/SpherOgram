@@ -6,8 +6,14 @@ module.exports = function (app) {
     var searchModel = require('../model/search/search.model.server');
 
     app.get('/api/project/search/:username', isAdminOrUser, findUserByUsername);
+
     app.get('/api/project/search/userId/:userId', isAdminOrUser, findUserById);
+
     app.get('/api/project/posts/:userId', validateSession, findPostsByOwner);
+
+    app.get('/api/project/search/user/follow/:userId', isAdminOrUser, follow);
+
+    app.get('/api/project/search/user/unfollow/:userId', isAdminOrUser, unfollow);
 
     function findUserByUsername(req, res) {
         var username = req.params.username;
@@ -45,9 +51,60 @@ module.exports = function (app) {
             .then(function (posts) {
                 res.send(posts);
             }, function (err) {
-                res.status(404).send(' Post nnot found ');
+                res.status(404).send(' Post not found ');
             });
     }
+
+    function follow(req, res) {
+        var userId = req.params.userId;
+        searchModel.findUserById(req.user._id)
+            .then(function (userFound) {
+                if (userFound) {
+                    userFound.following.push(userId);
+                    searchModel.updateUser(userFound._id, userFound)
+                        .then(function (post) {
+                            if (post) {
+                                res.json(post);
+                            }
+                            else {
+                                res.status(404).send(' Post not found ');
+                            }
+                        }, function (err) {
+                            res.status(400).send(' Post could not be updated ' + err);
+                        });
+                } else {
+                    res.status(404).send(' Post not found ');
+                }
+            }, function (err) {
+                res.status(400).send(' Post could not be updated ' + err);
+            });
+    }
+
+    function unfollow(req, res) {
+        var userId = req.params.userId;
+        searchModel.findUserById(req.user._id)
+            .then(function (userFound) {
+                if (userFound) {
+                    searchModel.updateRemoveUser(req.user._id,userId, userFound)
+                        .then(function (post) {
+                            if (post) {
+                                res.json(post);
+                            }
+                            else {
+                                res.status(404).send(' Post not found ');
+                            }
+                        }, function (err) {
+                            res.status(400).send(' Post could not be updated ' + err);
+                        });
+                } else {
+                    res.status(404).send(' Post not found ');
+                }
+            }, function (err) {
+                res.status(400).send(' Post could not be updated ' + err);
+            });
+    }
+
+
 
     function validateSession(req, res, next) {
         if (req.isAuthenticated()) {
@@ -59,10 +116,10 @@ module.exports = function (app) {
                                 next();
                             }
                             else {
-                                res.status(401).send('Post nott available');
+                                res.status(401).send('Post not available');
                             }
                         }, function () {
-                            res.status(401).send('Post noot available');
+                            res.status(401).send('Post not available');
                         })
                 }
                 else {
@@ -89,17 +146,29 @@ module.exports = function (app) {
 
     function isAdminOrUser(req, res, next) {
         if (req.isAuthenticated() && req !=null) {
-            //console.log("because 1 : "+req);
             next();
         }
         else if (req.isAuthenticated() && req.user._id.toString() === req.params.userId) {
-            //console.log("because 2 : "+req);
             next();
         }
         else {
-            //console.log("because 3 : "+req);
             res.sendStatus(401);
         }
     }
+
+    var removeByAttr = function(arr, attr, value){
+        var i = arr.length;
+        while(i--){
+            if( arr[i]
+                && arr[i].hasOwnProperty(attr)
+                && (arguments.length > 2 && arr[i][attr] === value ) ){
+
+                arr.splice(i,1);
+
+            }
+        }
+        return arr;
+    }
+
 
 };

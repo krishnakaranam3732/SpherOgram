@@ -8,7 +8,7 @@
     function PostConfig($routeProvider) {
         $routeProvider
 
-            .when('/post/:postId', {
+            .when('/user/post/:postId', {
                 templateUrl: 'views/post/templates/post.view.client.html',
                 controller: 'PostViewController',
                 controllerAs: 'PostViewCtrl',
@@ -16,10 +16,18 @@
                     currentUser: validateSession
                 }
             })
-            .when('/post/user/:username', {
-                templateUrl: 'views/post/templates/search-user-result.view.client.html',
-                controller: 'UserPostController',
-                controllerAs: 'UserPostCtrl',
+            .when('/feed/:userId', {
+            templateUrl: 'views/post/templates/feed.view.client.html',
+            controller: 'FeedViewController',
+            controllerAs: 'FeedViewCtrl',
+            resolve: {
+                currentUser: validateSession
+            }
+            })
+            .when('/user/discover/post', {
+                templateUrl: 'views/post/templates/discover-post-add.view.client.html',
+                controller: 'DiscoverPostAddController',
+                controllerAs: 'DiscoverPostAddCtrl',
                 resolve: {
                     currentUser: validateSession
                 }
@@ -30,6 +38,7 @@
             userService.validateSession()
                 .then(function (user) {
                     deferred.resolve(user);
+                    currentUser = user;
                 }, function () {
                     deferred.reject();
                     $location.url('/login');

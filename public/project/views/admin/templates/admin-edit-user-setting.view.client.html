@@ -1,0 +1,59 @@
+<div ng-include="'views/common/templates/header.view.client.html'"></div>
+<div class="godown-60" id="godown"></div>
+<div class="container center-container" ng-controller="AdminUserSettingController as AdminUserSettingCtrl">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>List of all Users </h4>
+        </div>
+    </div>
+    <div ng-show="AdminUserSettingCtrl.message" id="message" class="alert alert-info">
+        {{AdminUserSettingCtrl.message}}
+    </div>
+    <div ng-show="AdminUserSettingCtrl.error" id="error" class="alert alert-danger">
+        <strong>{{AdminUserSettingCtrl.error}}</strong></div>
+    <div ng-repeat="user in AdminUserSettingCtrl.users"
+         class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="row">
+            <div class="col-xs-6">
+                <h4><strong>{{user.firstName}} {{user.lastName}}</strong></h4>
+            </div>
+            <div class="col-xs-4">
+                <form id="{{user._id +'_form'}}" ng-submit="AdminUserSettingCtrl.updateProfile(user)">
+                    <div class="form-group form-check checkbox">
+                        <label class="form-check-label">
+                            <input type="checkbox" id="{{user._id +'_ADMIN'}}"
+                                   ng-checked="user.roles.indexOf('ADMIN') !== -1" id=""
+                                   class="form-check-input">
+                            Admin </label>
+                    </div>
+                    <div class="form-group form-check checkbox">
+                        <label class="form-check-label">
+                            <input type="checkbox" id="{{user._id +'_USER'}}"
+                                   ng-checked="user.roles.indexOf('USER') !== -1" class="form-check-input">
+                            User </label>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-2">
+                <button type="submit" form="{{user._id +'_form'}}" ng-click="AdminUserSettingCtrl.editUser(user)"
+                        class="btn btn-default btn-transparent"><h4><strong><span
+                        class="fa fa-arrow-circle-right" data-toggle="tooltip"
+                        title="Update Details"></span></strong>
+                </h4><span class="hidden-xs">&nbsp; Update</span></button>
+            </div>
+
+        </div>
+        <div class="row hidden-xs">
+            <div class="col-xs-12">
+                <p><strong>Username :</strong> {{user.username}}
+                    <span class="pull-right"><strong>Email :</strong> {{user.email}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="godown-60" id="godown"></div>
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>
+
+

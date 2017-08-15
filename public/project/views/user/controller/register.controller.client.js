@@ -25,6 +25,7 @@
                         registerCtrl.error = " Username already exists";
                         $anchorScroll('top');
                     }, function () {
+                        registerCtrl.user.roles = "USER";
                         userService.register(registerCtrl.user)
                             .then(function (user) {
                                 $location.url('/profile');

@@ -7,13 +7,17 @@
             Krishna Karanam</a></p>
         <div ng-show="footerCtrl.user">
             <a ng-show="footerCtrl.user.roles.indexOf('ADMIN') !== -1" class="navbar-brand pull-right"
-               href="#!/adminUsers"><i
-                    class="fa fa-unlock-alt" aria-hidden="true" data-toggle="tooltip" title="User Management"></i><span
-                    class="hidden-xs">&nbsp; User Settings</span></a>
+               href="#!/userSettings"><i
+                    class="fa fa-plus-square-o" aria-hidden="true" data-toggle="tooltip" title="User Management"></i><span
+                    class="hidden-xs">&nbsp; Create an Account</span></a>
             <a ng-show="footerCtrl.user.roles.indexOf('ADMIN') !== -1" class="navbar-brand pull-right"
-               href="#!/adminRecipes"><i
-                    class="fa fa-star-o" aria-hidden="true" data-toggle="tooltip" title="Choose Favourites"></i><span
-                    class="hidden-xs">&nbsp; Favourites</span></a>
+               href="#!/edituserSettings"><i
+                    class="fa fa-unlock-alt" aria-hidden="true" data-toggle="tooltip" title="User Management"></i><span
+                    class="hidden-xs">&nbsp; Edit Users</span></a>
+            <a class="navbar-brand pull-right" href="#!/user/discover/post"><i class="fa fa-globe"
+                                                                     aria-hidden="true" data-toggle="tooltip"
+                                                                     title="Discover"></i><span
+                    class="hidden-xs">&nbsp; Discover Panoramas</span></a>
         </div>
     </div>
 </nav>

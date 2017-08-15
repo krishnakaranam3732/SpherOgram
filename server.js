@@ -27,7 +27,7 @@ app.use(session({
 }));
 
 //passport-js
-var passport      = require('passport');
+var passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 

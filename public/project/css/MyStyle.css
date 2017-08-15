@@ -8,6 +8,15 @@
  * Base structure
  */
 
+
+a-body {
+    height: 100%;
+    margin: -10%;
+    overflow: hidden;
+    padding:-10%;
+    width: 100%;
+}
+
 html,
 body {
     background: #1ABC9C;

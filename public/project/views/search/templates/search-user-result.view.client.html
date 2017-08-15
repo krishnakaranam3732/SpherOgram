@@ -19,8 +19,14 @@
 
                     <div class="todo">
                         <div class="profile-userbuttons">
-                            <button type="button" class="btn btn-success btn-sm">Follow</button>
-                            <button type="button" class="btn btn-danger btn-sm">unFollow</button>
+
+                            <div ng-if="!UserViewCtrl.user.followed">
+                                <button type="button" ng-click="UserViewCtrl.follow()" class="btn btn-success btn-sm">Follow</button>
+                            </div>
+                            <div ng-if="UserViewCtrl.user.followed">
+                                <button type="button" ng-click="UserViewCtrl.follow()" class="btn btn-danger btn-sm">unFollow</button>
+                            </div>
+
                         </div>
                     </div>
 
@@ -40,7 +46,12 @@
                 </div>
                 <div class="row" ng-if="UserViewCtrl.posts">
                     <div class="col-xs-4" ng-repeat="post in UserViewCtrl.posts">
-                    {{UserViewCtrl.posts}}
+                        <div class = "login-form">{{post.description}}
+                            <img class="img-responsive center-block"
+                                 src="{{post.URL}}">
+                            <a class="btn btn-primary btn-large btn-block" ng-href="#!/user/post/{{post._id}}">View Post</a>
+
+                        </div>
                     </div>
                 </div>
             </div>

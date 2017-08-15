@@ -17,12 +17,7 @@
                 controller: 'RegisterController',
                 controllerAs: 'registerCtrl'
             })
-			.when('/discover', {
-                templateUrl: 'views/user/templates/discover.view.client.html',
-                controller: 'DiscoverController',
-                controllerAs: 'discoverCtrl'
-            })
-            .when('/profile', {
+			.when('/profile', {
                 templateUrl: 'views/user/templates/profile.view.client.html',
                 controller: 'ProfileController',
                 controllerAs: 'profileCtrl',
@@ -36,6 +31,7 @@
             userService.validateSession()
                 .then(function (user) {
                     deferred.resolve(user);
+                    currentUser = user;
                 }, function () {
                     deferred.reject();
                     $location.url('/login');

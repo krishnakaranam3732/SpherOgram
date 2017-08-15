@@ -1,0 +1,28 @@
+<div ng-include="'views/common/templates/header.view.client.html'"></div>
+<div class="godown-60" id="godown"></div>
+<div class="container center-container" ng-controller="FeedViewController as FeedViewCtrl">
+
+    <h2 class="form-signin-heading" id="top">Feed</h2>
+    <div ng-show="PostViewCtrl.error" id="errorMessage" class="alert alert-danger"><strong>{{FeedViewCtrl.error}}</strong>
+    </div>
+
+
+        <div class="row">
+            <div class="col-xs-6" ng-repeat="feedpost in FeedViewCtrl.feedposts">
+        <h3> {{feedpost.description}} :</h3>
+                <div class="tile">
+                    <h3 class="tile-title">{{feedpost.description}}</h3>
+                    <img class="img-responsive center-block"
+                         src="{{feedpost.URL}}">
+                    <div class="col-md-4">
+                        <a class="btn btn-primary btn-large btn-block" ng-href="#!/user/post/{{feedpost._id}}">View Post</a>
+                    </div>
+
+                    <br>
+                </div>
+
+                </div>
+            </div>
+        </div>
+<div class="godown-60" id="godown"></div>
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

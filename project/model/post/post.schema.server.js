@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 var postSchema = mongoose.Schema({
 
-    description: {type: String, required: true},
+    description: {type: String},
     pano_id: String,
     lat: Number,
     lng: Number,
@@ -15,6 +15,6 @@ var postSchema = mongoose.Schema({
     likedUsers: [{type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'}],
     owner: {type: mongoose.Schema.Types.ObjectId, ref: 'UserModel'}
 
-}, {collection: 'Post'});
+}, {collection: 'post'});
 
 module.exports = postSchema;

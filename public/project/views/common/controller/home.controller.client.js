@@ -5,16 +5,24 @@
     angular
         .module("Sphereogram")
         .controller("HomeController", homeController);
-    function homeController($interval,currentUser, $location) {
+    function homeController($interval,currentUser, $route,userService) {
 
         var homeCtrl = this;
         homeCtrl.url = "img/photosphere.jpg";
+        homeCtrl.logout = logout;
 
-        function init() {
+        homeCtrl.currentUser = currentUser;
+
+        function logout() {
+            userService.logout().then(
+                function () {
+                    $route.reload()
+                }, profileError);
         }
 
-        init();
-
+        function profileError() {
+            homeCtrl.error = "Oops! Something went wrong. Please try again later";
+        }
         
 
     }
