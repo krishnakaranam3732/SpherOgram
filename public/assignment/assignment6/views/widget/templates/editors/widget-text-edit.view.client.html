@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form id="form">
+            <div class="form-group krish-form-group">
+                <label for="name" class="lead">Name</label>
+                <input type="text" ng-model="widgetEditCtrl.currentWidget.name" id="name" class="form-control"
+                       placeholder="Name"
+                       data-toggle="tooltip"
+                       title="Enter Widget Name" autofocus>
+            </div>
+            <div class="form-group krish-form-group">
+                <label for="text" class="lead">Text</label>
+                <input type="text" ng-model="widgetEditCtrl.currentWidget.text" id="text" class="form-control"
+                       placeholder="Name"
+                       data-toggle="tooltip"
+                       title="Enter Widget Text">
+            </div>
+            <div class="form-group krish-form-group">
+                <label for="rows" class="lead">Rows</label>
+                <input type="number" ng-model="widgetEditCtrl.currentWidget.rows" id="rows" class="form-control"
+                       placeholder="1"
+                       data-toggle="tooltip"
+                       title="Enter Widget Rows">
+            </div>
+            <div class="form-group krish-form-group">
+                <label for="placeholder" class="lead">Placeholder</label>
+                <input type="text" ng-model="widgetEditCtrl.currentWidget.placeholder" id="placeholder"
+                       class="form-control"
+                       placeholder="Placeholder"
+                       data-toggle="tooltip"
+                       title="Enter Widget Placeholder">
+            </div>
+            <div class="form-group krish-form-group checkbox">
+                <label class="lead"><input type="checkbox" ng-model="widgetEditCtrl.currentWidget.formatted"
+                                           id="formatted"
+                                           data-toggle="tooltip"
+                                           title="Enter Widget formatted" value="true">Formatted</label>
+            </div>
+            <div class="form-group krish-form-group">
+                <a href ng-click="widgetEditCtrl.deleteWidget()" class="btn btn-lg btn-block krish-cancel"
+                   type="submit">Delete</a>
+            </div>
+        </form>
+    </div>
+</div>
+

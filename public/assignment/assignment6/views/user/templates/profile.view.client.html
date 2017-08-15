@@ -1,0 +1,8 @@
+<div class="container-fluid krish-center-container">
+    <div ng-if="!(profileCtrl.currentUser.google || profileCtrl.currentUser.facebook)"
+         ng-include="'views/user/templates/profile-local.view.client.html'"></div>
+    <div ng-if="profileCtrl.currentUser.google || profileCtrl.currentUser.facebook"
+         ng-include="'views/user/templates/profile-auth.view.client.html'"></div>
+    <div ng-include="'views/common/footer.view.client.html'"></div>
+</div>
+

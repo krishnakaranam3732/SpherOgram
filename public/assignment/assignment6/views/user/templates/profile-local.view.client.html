@@ -1,0 +1,69 @@
+<nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+    <div class="container-fluid">
+
+            <span class="navbar-brand">
+                <strong>Profile</strong>
+            </span>
+        <button type="submit" class="navbar-brand pull-right krish-button-form" form="top"><span
+                class="glyphicon glyphicon-ok pull-right"></span></button>
+        <button class="navbar-brand pull-right krish-button-form" href ng-click="profileCtrl.deleteUser()"
+                data-toggle="tooltip"
+                title="Deactivate Account"><span
+                class="glyphicon glyphicon-remove pull-right"></span></button>
+
+    </div>
+</nav>
+
+<form class="form-signin" id="top" ng-submit="profileCtrl.updateProfile()">
+    <div ng-show="profileCtrl.error" class="alert alert-danger krish-alert-style">
+        <strong>{{profileCtrl.error}}</strong></div>
+    <div ng-show="profileCtrl.message" class="alert alert-info krish-info-style">
+        <strong>{{profileCtrl.message}}</strong></div>
+    <div class="form-group">
+        <label for="username" class="lead">User Name</label>
+        <input type="text" ng-model="profileCtrl.currentUser.username" id="username" class="form-control"
+               placeholder="User Name"
+               data-toggle="tooltip"
+               title="Enter your username" readonly>
+    </div>
+    <div class="form-group">
+        <label for="email" class="lead">Email</label>
+        <input type="email" ng-model="profileCtrl.currentUser.email" id="email" class="form-control"
+               placeholder="Email Id"
+               data-toggle="tooltip"
+               title="Enter your email" required>
+    </div>
+    <div class="form-group">
+        <label for="firstName" class="lead">First Name</label>
+        <input type="text" ng-model="profileCtrl.currentUser.firstName" id="firstName" class="form-control"
+               placeholder="First Name"
+               data-toggle="tooltip"
+               title="Enter your first name" required>
+    </div>
+    <div class="form-group">
+        <label for="lastName" class="lead">Last Name</label>
+        <input type="text" ng-model="profileCtrl.currentUser.lastName" id="lastName" class="form-control"
+               placeholder="Last Name"
+               data-toggle="tooltip"
+               title="Enter your last name" required>
+    </div>
+    <div class="form-group">
+        <label for="phone" class="lead">Phone</label>
+        <input type="text" ng-model="profileCtrl.currentUser.phone" id="phone" class="form-control"
+               placeholder="XXX-XXX-XXXX" pattern="\d{3}[\-]*\d{3}[\-]*\d{4}" data-toggle="tooltip"
+               title="Enter your phone number">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword" class="lead">Password</label>
+        <input type="password" ng-model="profileCtrl.password" id="inputPassword" class="form-control"
+               placeholder="Password" data-toggle="tooltip"
+               title="Enter your password">
+    </div>
+    <div class="form-group">
+        <label for="verifyInputPassword" class="lead">Verify Password</label>
+        <input type="password" ng-model="profileCtrl.verifyPassword" id="verifyInputPassword" class="form-control"
+               placeholder="Verify Password"
+               data-toggle="tooltip" title="Verify your password">
+    </div>
+    <a href="#!/website" class="btn btn-lg btn-block" type="submit">Websites</a>
+</form>

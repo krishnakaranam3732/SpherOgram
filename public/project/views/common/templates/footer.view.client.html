@@ -1,0 +1,19 @@
+<nav ng-controller="FooterController as footerCtrl"
+     class="navbar navbar-inverse navbar-embossed navbar-fixed-bottom">
+    <div class="container-fluid">
+        <p class="navbar-brand pull-left">Copyright @ <a href="https://github.com/krishnakaranam3732"
+                                                                                 target="_blank"><i class="fa fa-github"
+                                                                                                    aria-hidden="true"></i>
+            Krishna Karanam</a></p>
+        <div ng-show="footerCtrl.user">
+            <a ng-show="footerCtrl.user.roles.indexOf('ADMIN') !== -1" class="navbar-brand pull-right"
+               href="#!/adminUsers"><i
+                    class="fa fa-unlock-alt" aria-hidden="true" data-toggle="tooltip" title="User Management"></i><span
+                    class="hidden-xs">&nbsp; User Settings</span></a>
+            <a ng-show="footerCtrl.user.roles.indexOf('ADMIN') !== -1" class="navbar-brand pull-right"
+               href="#!/adminRecipes"><i
+                    class="fa fa-star-o" aria-hidden="true" data-toggle="tooltip" title="Choose Favourites"></i><span
+                    class="hidden-xs">&nbsp; Favourites</span></a>
+        </div>
+    </div>
+</nav>

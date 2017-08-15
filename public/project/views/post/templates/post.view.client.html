@@ -1,0 +1,33 @@
+<div ng-include="'views/common/templates/header.view.client.html'"></div>
+<div class="godown-60" id="godown"></div>
+<div class="container center-container" ng-controller="PostViewController as PostViewCtrl">
+
+
+    <h2 class="form-signin-heading" id="top">Post</h2>
+    <div ng-show="PostViewCtrl.error" id="errorMessage" class="alert alert-danger shr-alert-style"><strong>{{PostViewCtrl.error}}</strong>
+    </div>
+
+    <div ng-show="PostViewCtrl.post">
+        <div class="row">
+            <div class="col-xs-6">
+        <h2> results :</h2>
+                <div class="tile">
+                    <h3 class="tile-title">{{PostViewCtrl.post.pano_id}}</h3>
+                </div>
+                <a ng-if="!PostViewCtrl.currentPost.liked" href ng-click="PostViewCtrl.likePost()"
+                   class="pull-right"><i
+                        class="fa fa-heart-o"
+                        aria-hidden="true" data-toggle="tooltip"
+                        title="Like Post"></i><span>&nbsp; Like</span></a>
+                <a ng-if="PostViewCtrl.currentPost.liked" href ng-click="PostViewCtrl.likePost()"
+                   class="pull-right"><i
+                        class="fa fa-heart"
+                        aria-hidden="true" data-toggle="tooltip"
+                        title="UnLike Post"></i><span>&nbsp; UnLike</span></a>
+            </div>
+        </div>
+
+
+    </div>
+<div class="godown-60" id="godown"></div>
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

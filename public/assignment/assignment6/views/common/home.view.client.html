@@ -1,0 +1,26 @@
+<div class="cover-container krish-center-container krish-home-page-center">
+
+    <div class="inner cover">
+        <div ng-show="homeCtrl.error" class="alert alert-danger krish-alert-style">
+            <strong>{{homeCtrl.error}}</strong></div>
+        <p class="lead">Welcome! Please Login or Register</p>
+        <p class="lead">
+            <a ng-href="#!/login" class="btn btn-lg btn-default">Login</a>
+            <a ng-href="#!/register" class="btn btn-lg btn-default">Register</a>
+        </p>
+		<p class="lead" ng-show="homeCtrl.user">
+            <a ng-href="#!/profile" class="btn btn-lg btn-default">Profile</a>
+            <a ng-href="#!/website" ng-show="homeCtrl.user.roles.indexOf('USER') !== -1"
+               class="btn btn-lg btn-default">Websites</a>
+            <a ng-href="#!/admin" ng-show="homeCtrl.user.roles.indexOf('ADMIN') !== -1" class="btn btn-lg btn-default">Admin</a>
+            <a ng-click="homeCtrl.logout()" class="btn btn-lg btn-default">Logout</a>
+        </p>
+    </div>
+
+    <div class="mastfoot">
+        <div class="inner">
+            <p>Sai Krishna Karanam - Web Developement Summer 2017</p>
+        </div>
+    </div>
+
+</div>

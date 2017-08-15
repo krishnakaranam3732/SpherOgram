@@ -1,0 +1,40 @@
+<div ng-include="'views/common/templates/header.view.client.html'"></div>
+<div class="godown-60" id="godown"></div>
+<div class="container center-container" ng-controller="UserSearchController as UserSearchCtrl">
+
+
+        <h2 class="form-signin-heading" id="top">Search User</h2>
+        <div ng-show="UserSearchCtrl.error" id="errorMessage" class="alert alert-danger shr-alert-style"><strong>{{UserSearchCtrl.error}}</strong>
+        </div>
+    <div class="row">
+        <div class="col-xs-3">
+        <div class="form-group">
+            <input type="text" ng-model="UserSearchCtrl.title" id="title" class="form-control" placeholder="Username"
+                   data-toggle="tooltip"
+                   title="Enter the username" required autofocus autocorrect="off" autocapitalize="off">
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+        <button class="btn btn-lg btn-block" ng-click = "UserSearchCtrl.findUserByUsername(UserSearchCtrl.title)">Search</button>
+        </div>
+    </div>
+    <div ng-show="UserSearchCtrl.user">
+        <div class="row">
+            <div class="col-xs-3">
+        <h2> results :</h2>
+                <div class="tile">
+                    <h3 class="tile-title">{{UserSearchCtrl.user.username}}</h3>
+                    <p>{{UserSearchCtrl.user.firstName}} {{UserSearchCtrl.user.lastName}} {{UserSearchCtrl.user._id}}</p>
+                    <a class="btn btn-primary btn-large btn-block" ng-href="#!/user/{{UserSearchCtrl.user._id}}">View User Profile</a>
+                </div>
+
+            </div>
+        </div>
+
+
+</div>
+<div class="godown-60" id="godown"></div>
+<div ng-include="'views/common/templates/footer.view.client.html'"></div>

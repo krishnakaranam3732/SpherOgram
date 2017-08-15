@@ -1,0 +1,44 @@
+<nav ng-controller="HeaderController as headerCtrl"
+     class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation" id="navMenu">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 col-sm-2">
+                <a href="#!/"><img class="navbar-brand img-fluid img-responsive img-fitColumn" src="../project/img/icons/svg/compas.svg"></a>
+				</div>
+            <div class="col-xs-8 col-sm-10">
+                <div ng-hide="headerCtrl.user">
+                    <a class="navbar-brand pull-right" href="#!/register"><i class="fa fa-user-plus"
+                                                                             aria-hidden="true" data-toggle="tooltip"
+                                                                             title="Register"></i><span
+                            class="hidden-xs">&nbsp; Sign up</span></a>
+                    <a class="navbar-brand pull-right" href="#!/login"><i class="fa fa-sign-in"
+                                                                          aria-hidden="true" data-toggle="tooltip"
+                                                                          title="Login"></i><span
+                            class="hidden-xs">&nbsp; Login</span></a>
+                </div>
+                <div ng-show="headerCtrl.user">
+                    <a class="navbar-brand pull-right" href ng-click="headerCtrl.logout()"><i class="fa fa-sign-out"
+                                                                                              aria-hidden="true"
+                                                                                              data-toggle="tooltip"
+                                                                                              title="Logout"></i><span
+                            class="hidden-xs">&nbsp; Logout</span></a>
+                    <a ng-show="headerCtrl.user.roles.indexOf('USER') !== -1" class="navbar-brand pull-right"
+                       href="#!/profile"><i
+                            class="fa fa-user"
+                            aria-hidden="true" data-toggle="tooltip" title="Profile"></i><span
+                            class="hidden-xs">&nbsp; Profile</span></a>
+                    <a ng-show="headerCtrl.user.roles.indexOf('USER') !== -1" class="navbar-brand pull-right"
+                       href="#!/search"><i
+                            class="fa fa-search" aria-hidden="true" data-toggle="tooltip" title="Search"></i><span
+                            class="hidden-xs">&nbsp; Search</span></a>
+                    <a ng-show="headerCtrl.user.roles.indexOf('USER') !== -1" class="navbar-brand pull-right"
+                       href="#!/feed"><i
+                            class="fa fa-instagram" aria-hidden="true" data-toggle="tooltip"
+                            title="feed"></i><span
+                            class="hidden-xs">&nbsp; Feed</span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
