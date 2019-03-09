@@ -42,7 +42,7 @@
         }
 
         function searchPost(place) {
-            var url = "https://maps.googleapis.com/maps/api/streetview/metadata?size=640x640&location="+place+"&key=AIzaSyDa5tElq2T9VB42EmrHyTMlSlEbJmmgib8";
+            var url = "https://maps.googleapis.com/maps/api/streetview/metadata?size=640x640&location="+place+"&key=AIzaSyASnCH-vhDoB1GRXorM0ctYDVwEILiUYf4";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
