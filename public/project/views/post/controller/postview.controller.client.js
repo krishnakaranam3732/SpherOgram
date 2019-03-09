@@ -16,7 +16,7 @@
             postService.findPostById(PostViewCtrl.postId)
                 .then(function (post) {
                     PostViewCtrl.post = post;
-                    PostViewCtrl.URL = "https://maps.googleapis.com/maps/api/streetview?size=640x640&pano="+post.pano_id+"&heading=151.78&pitch=-0.76&key=AIzaSyDa5tElq2T9VB42EmrHyTMlSlEbJmmgib8";
+                    PostViewCtrl.URL = "https://maps.googleapis.com/maps/api/streetview?size=640x640&pano="+post.pano_id+"&heading=151.78&pitch=-0.76&key=AIzaSyASnCH-vhDoB1GRXorM0ctYDVwEILiUYf4";
                         PostViewCtrl.currentPost = post;
                     post.liked = post.likedUsers.indexOf(currentUser._id.toString()) !== -1;
                     if(currentUser._id.toString() === post.owner)

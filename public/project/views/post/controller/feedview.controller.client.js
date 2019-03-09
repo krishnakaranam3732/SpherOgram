@@ -27,7 +27,7 @@
                                         FeedViewCtrl.tmpUsername = user.username;
                                         if (postitem.description == FeedViewCtrl.tmpUsername)
                                         {
-                                            postitem.URL="https://maps.googleapis.com/maps/api/streetview?size=640x640&pano="+postitem.pano_id+"&heading=151.78&pitch=-0.76&key=AIzaSyDa5tElq2T9VB42EmrHyTMlSlEbJmmgib8";
+                                            postitem.URL="https://maps.googleapis.com/maps/api/streetview?size=640x640&pano="+postitem.pano_id+"&heading=151.78&pitch=-0.76&key=AIzaSyASnCH-vhDoB1GRXorM0ctYDVwEILiUYf4";
                                             FeedViewCtrl.feedposts.push(postitem);
                                         }
                                     }, postError);
