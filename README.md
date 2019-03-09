@@ -8,8 +8,8 @@ I have worked in Accenture Services India from July 2015 - Nov 2016 as an Applic
 This repository is created to develop, maintain and deploy web applications as a part of WEB DEVELOPMENT course.
 
 Please find some important links below:
-Root of Heroku hosted environment: https://karanam-saikrishna-webdev.herokuapp.com/
+Root of Heroku hosted environment: https://sphereogram.herokuapp.com/project/
 
-Link to my source code: https://github.com/krishnakaranam3732/karanam-saikrishna-webdev
+Link to my source code: https://github.com/krishnakaranam3732/SpherOgram
 
 Link to the assignment: https://docs.google.com/document/d/14RHdau7lYAzqB16YaxV4QMYUqAbLH8mhZwP9A-aguU0/edit#
