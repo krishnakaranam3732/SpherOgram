@@ -62,7 +62,7 @@
                         DiscoverPostAddCtrl.post.lat = response.location.lat;
                         DiscoverPostAddCtrl.post.lng = response.location.lng;
                         DiscoverPostAddCtrl.post.pano_id = response.pano_id;
-                        DiscoverPostAddCtrl.URL = "https://maps.googleapis.com/maps/api/streetview?size=640x640&pano=" + response.pano_id + "&heading=151.78&pitch=-0.76&key=AIzaSyDa5tElq2T9VB42EmrHyTMlSlEbJmmgib8";
+                        DiscoverPostAddCtrl.URL = "https://maps.googleapis.com/maps/api/streetview?size=640x640&pano=" + response.pano_id + "&heading=151.78&pitch=-0.76&key=AIzaSyASnCH-vhDoB1GRXorM0ctYDVwEILiUYf4";
                     } });
         }
 
