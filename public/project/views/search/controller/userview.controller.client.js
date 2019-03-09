@@ -16,7 +16,7 @@
             searchService.findPostsByOwner(UserViewCtrl.userId)
                 .then(function (posts) {
                         posts.forEach(function(post,index){
-                        post.URL = "https://maps.googleapis.com/maps/api/streetview?size=640x640&pano="+post.pano_id+"&heading=151.78&pitch=-0.76&key=AIzaSyDa5tElq2T9VB42EmrHyTMlSlEbJmmgib8";
+                        post.URL = "https://maps.googleapis.com/maps/api/streetview?size=640x640&pano="+post.pano_id+"&heading=151.78&pitch=-0.76&key=AIzaSyASnCH-vhDoB1GRXorM0ctYDVwEILiUYf4";
                             }, PostError);
                 UserViewCtrl.posts = posts;
                 }, PostError);
